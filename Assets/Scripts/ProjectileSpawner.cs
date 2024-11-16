@@ -1,7 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ProjectileSpawner : MonoBehaviour
 {
@@ -117,7 +121,10 @@ public class ProjectileSpawner : MonoBehaviour
         {
             //Create projectile instance
             Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Projectile>();
+
+            //Set Stats
             stats.Direction = transform.right;
+            stats.EnemyLayer = Mathf.RoundToInt(Mathf.Log(enemyLayer.value, 2));
 
             //Set Projectile speed
             instance.SetStats(stats);
@@ -133,11 +140,13 @@ public struct ProjectileStats
     public float Speed;
     public float LifeTime;
     [HideInInspector] public Vector2 Direction;
+    public int EnemyLayer;
 
-    public ProjectileStats(float speed, float lifeTime, Vector2 direction)
+    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer)
     {
         Speed = speed;
         LifeTime = lifeTime;
         Direction = direction;
+        EnemyLayer = enemyLayer;
     }
 }
