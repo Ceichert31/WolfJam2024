@@ -95,6 +95,7 @@ public abstract class Unit : MonoBehaviour
         _rigidbody.simulated = true;
         _rigidbody.gravityScale = 0;
         _rigidbody.freezeRotation = true;
+        _rigidbody.linearDamping = 0.5f;
 
         //Vector2 dir = Random.insideUnitCircle;
         //dir.Normalize();
