@@ -5,9 +5,12 @@ public class MouseCursor : MonoBehaviour
     [SerializeField]
     private SpriteRenderer _myRenderer;
 
+    [SerializeField]
+    private Vector3 _mouseOffset = new Vector3(0.4f, -0.2f);
+
     private void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
     }
 
     void Update()
@@ -24,6 +27,6 @@ public class MouseCursor : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0.0f;
 
-        transform.position = mousePos;
+        transform.position = mousePos + _mouseOffset;
     }
 }

@@ -2026,6 +2026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myRenderer: {fileID: 2030145576}
+  _mouseOffset: {x: 0.1, y: -0.15, z: 0}
 --- !u!212 &2030145576
 SpriteRenderer:
   m_ObjectHideFlags: 0

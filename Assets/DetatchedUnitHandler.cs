@@ -153,5 +153,29 @@ public class DetatchedUnitHandler : MonoBehaviour
         if (GameManager.Instance.GameState != GameManager.EGameState.Building) return;
 
         selectedUnit = unit;
+
+        if (unit == null) return;
+        List<Unit> units = GetAllUnits();
+
+        UnitCursor currentCursor = null;
+
+        // destroy all others
+        for(int i = 0; i < units.Count; i++)
+        {
+            if (units[i] != unit)
+            {
+                // destroy and remove pairing
+                Destroy(cursorToUnitPair[units[i]].gameObject);
+
+                Destroy(units[i].gameObject);
+            }
+            else
+            {
+                currentCursor = cursorToUnitPair[units[i]];
+            }
+        }
+
+        cursorToUnitPair.Clear();
+        cursorToUnitPair.Add(unit, currentCursor);
     }
 }
