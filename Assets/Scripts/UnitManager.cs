@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class UnitManager : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField]
     private Grid _myGrid;
 
@@ -17,13 +18,23 @@ public class UnitManager : MonoBehaviour
     [SerializeField]
     private Transform _testDetachedUnitHolder;
 
+    [Header("Health")]
+    [SerializeField]
+    private Health _myHealth;
+
+    [SerializeField]
+    private bool _isPlayerShip = false;
+
     public bool IsTestingMode = false;
+
+    public bool IsTestingUnitDeath = false;
 
     // Getters
     public Transform DetachedGridHolder { get { return _testDetachedUnitHolder; } }
     private List<Unit> _units = new List<Unit>();
     public List<Unit> Units { get { return _units; } }
     public Grid MyGrid { get { return _myGrid; } }
+    public Health MyHealth { get { return _myHealth; } }
 
     private void Start()
     {
@@ -38,29 +49,54 @@ public class UnitManager : MonoBehaviour
             }
         }
 
-        // test
-        List<Unit> units = _units[0].GetUnitNeighbors();
-
         if(IsTestingMode) RemoveUnit(_units[0]);
+
+        _myHealth.OnDeath += Death;
+        _myHealth.OnHealthUpdate += HealthUpdate;
+
+        if (IsTestingUnitDeath)
+        {
+            _myHealth.TakeDamage(10000);
+        }
+    }
+
+    public void Death()
+    {
+        Debug.Log("Unit Death");
+
+        if (_isPlayerShip)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.EGameState.Lose);
+        }
+        else
+        {
+            // detatch all
+            while(_units.Count > 0)
+            {
+                Debug.Log("Detatching...");
+                RemoveUnit(_units[0]);
+            }
+        }
+    }
+
+    public void HealthUpdate(int oldHealth, int newHealth)
+    {
+        if(oldHealth > newHealth)
+        {
+            // damage was taken
+        }
+
+        if(newHealth > oldHealth)
+        {
+            // health gained
+        }
     }
 
     public void AddUnit(Unit unit)
     {
-        Debug.Log("adding");
-
-        //Tile tile = new Tile();
-        //tile.gameObject = unit.gameObject;
         _units.Add(unit);
         unit.transform.parent = _unitHolders.transform;
         unit.Setup(this);
-
-        //tile.RefreshTile(_myGrid.WorldToCell(unit.transform.position), _tilemap);
-
-        /*
-        foreach (Unit u in _units)
-        {
-            u.UpdateUnit();
-        }*/
     }
 
     public bool CanAddUnit(Vector2 worldPos, Unit unit)

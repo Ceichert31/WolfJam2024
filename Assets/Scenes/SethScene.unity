@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 846819692}
   - component: {fileID: 846819691}
   - component: {fileID: 846819690}
+  - component: {fileID: 846819693}
   - component: {fileID: 846819689}
   m_Layer: 0
   m_Name: Enemy Ship Unit
@@ -837,7 +838,10 @@ MonoBehaviour:
   _tilemap: {fileID: 564576214}
   _unitHolders: {fileID: 564576212}
   _testDetachedUnitHolder: {fileID: 1378942031}
+  _myHealth: {fileID: 846819693}
+  _isPlayerShip: 0
   IsTestingMode: 0
+  IsTestingUnitDeath: 1
 --- !u!156049354 &846819691
 Grid:
   m_ObjectHideFlags: 0
@@ -866,6 +870,21 @@ Transform:
   - {fileID: 564576212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &846819693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846819688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f895d508ac1a43cda999fdfa120e500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 50
+  _startingHealth: 50
+  _canTakeDamage: 1
 --- !u!4 &850237560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1317867485787819332, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
@@ -1485,6 +1504,7 @@ GameObject:
   - component: {fileID: 1721269770}
   - component: {fileID: 1721269769}
   - component: {fileID: 1721269772}
+  - component: {fileID: 1721269774}
   - component: {fileID: 1721269773}
   m_Layer: 0
   m_Name: Ship Unit Test
@@ -1509,7 +1529,10 @@ MonoBehaviour:
   _tilemap: {fileID: 611077886}
   _unitHolders: {fileID: 611077884}
   _testDetachedUnitHolder: {fileID: 1378942031}
+  _myHealth: {fileID: 1721269774}
+  _isPlayerShip: 0
   IsTestingMode: 1
+  IsTestingUnitDeath: 0
 --- !u!156049354 &1721269770
 Grid:
   m_ObjectHideFlags: 0
@@ -1582,6 +1605,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1721269774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721269768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f895d508ac1a43cda999fdfa120e500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 50
+  _startingHealth: 50
+  _canTakeDamage: 1
 --- !u!1 &1755701164
 GameObject:
   m_ObjectHideFlags: 0
