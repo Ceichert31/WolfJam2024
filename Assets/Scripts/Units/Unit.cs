@@ -4,11 +4,27 @@ using System.Collections.Generic;
 
 public abstract class Unit : MonoBehaviour
 {
+    public enum ShipUnitState
+    {
+        Detatched,
+        Attached
+    }
+
+    [SerializeField]
+    private Rigidbody2D _rigidbody;
+
     [HideInInspector] protected UnitManager myUnitManager;
+    [HideInInspector] protected ShipUnitState shipUnitState;
+
+    public ShipUnitState MyShipUnitState { get { return shipUnitState; } }
 
     public virtual void Setup(UnitManager myUnitManager)
     {
+        if (_rigidbody != null) Destroy(_rigidbody);
+
         this.myUnitManager = myUnitManager;
+
+        shipUnitState = ShipUnitState.Attached;
     }
 
     public List<Unit> GetUnitNeighbors()
@@ -35,7 +51,42 @@ public abstract class Unit : MonoBehaviour
         return units;
     }
 
+    /// <summary>
+    /// occurs upon death
+    /// </summary>
+    public void DetatchUnit()
+    {
+        myUnitManager.RemoveUnit(this);
+    }
+
     public virtual void UpdateUnit() { }
 
-    public virtual void HandleRemoval() { }
+    public virtual void HandleRemoval()
+    {
+        // set state to detached
+        shipUnitState = ShipUnitState.Detatched;
+
+        _rigidbody = gameObject.AddComponent<Rigidbody2D>();
+
+        // set rigidbody to be moving freely
+        _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        _rigidbody.simulated = true;
+        _rigidbody.gravityScale = 0;
+        _rigidbody.freezeRotation = true;
+    }
+
+    public void OnMouseEnter()
+    {
+        if (!DetatchedUnitHandler.instance.CanSelectUnits) return;
+    }
+
+    public void OnMouseDown()
+    {
+        DetatchedUnitHandler.instance.SetSelectedUnit(this);
+    }
+
+    public void OnMouseUp()
+    {
+        DetatchedUnitHandler.instance.SetSelectedUnit(null);
+    }
 }
