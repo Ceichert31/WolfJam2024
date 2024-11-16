@@ -89,6 +89,7 @@ public class UnitManager : MonoBehaviour
                 RemoveUnit(_units[0]);
 
                 u.ExplodeFromPoint(GetShipCenterPoint());
+                GameManager.Instance.AddToKills();
 
                 //Play death audio
                 deathPitcher.Play(_audioSource);

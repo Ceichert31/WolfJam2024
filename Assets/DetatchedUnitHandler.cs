@@ -90,6 +90,7 @@ public class DetatchedUnitHandler : MonoBehaviour
             {
                 Debug.Log("we added this unit bru");
                 unitManager.AddUnit(u);
+                GameManager.Instance.AddToConnections();
 
                 //Play sound effect
                 _attachPitcher.Play(_audioSource);
