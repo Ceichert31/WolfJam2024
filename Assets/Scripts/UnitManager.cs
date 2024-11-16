@@ -115,6 +115,9 @@ public class UnitManager : MonoBehaviour
         _units.Add(unit);
         unit.transform.parent = _unitHolders.transform;
         unit.Setup(this);
+        //Change enemy layer and unit layer
+        //Function that returns whether something is part of player
+        unit.SetTargetEnemyLayer(1 << LayerMask.NameToLayer("Enemy"));
     }
 
     public bool CanAddUnit(Vector2 worldPos, Unit unit)

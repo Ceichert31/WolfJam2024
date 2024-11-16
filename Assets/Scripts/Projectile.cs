@@ -27,9 +27,20 @@ public class Projectile : MonoBehaviour
         //Set lifetime duration
         waitTime = Time.time + stats.LifeTime;
 
+        destroyMask.Clear();
         //Add enemy layer as destructable layer
-        destroyMask.Add(stats.EnemyLayer);
-        damageMask.Add(stats.EnemyLayer);
+        if (stats.EnemyLayer == 3)
+        {
+            destroyMask.Add(0);
+            destroyMask.Add(stats.EnemyLayer);
+            damageMask.Add(stats.EnemyLayer);
+        }
+        else
+        {
+            destroyMask.Add(0);
+            destroyMask.Add(stats.EnemyLayer);
+            damageMask.Add(stats.EnemyLayer);
+        }
     }
 
     /// <summary>

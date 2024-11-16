@@ -18,6 +18,8 @@ public abstract class Unit : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    private ProjectileSpawner _projectileSpawner;
+
     [HideInInspector] protected UnitManager myUnitManager;
     protected ShipUnitState shipUnitState;
 
@@ -32,6 +34,7 @@ public abstract class Unit : MonoBehaviour
             Destroy(_rigidbody);
         }
 
+        _projectileSpawner = GetComponentInChildren<ProjectileSpawner>();
 
         this.myUnitManager = myUnitManager;
 
@@ -128,5 +131,10 @@ public abstract class Unit : MonoBehaviour
     public void OnMouseUp()
     {
         DetatchedUnitHandler.instance.SetSelectedUnit(null);
+    }
+
+    public void SetTargetEnemyLayer(LayerMask layer)
+    {
+        _projectileSpawner.SetTurretEnemyLayer(layer);
     }
 }
