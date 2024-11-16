@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
 
     public void AddToConnections()
     {
+        Debug.Log("shit");
         connections++;
     }
 }

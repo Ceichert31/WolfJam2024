@@ -88,12 +88,11 @@ public class DetatchedUnitHandler : MonoBehaviour
         {
             if (unitManager.CanAddUnit(u.transform.position, u))
             {
-                Debug.Log("we added this unit bru");
-                unitManager.AddUnit(u);
                 GameManager.Instance.AddToConnections();
 
                 //Play sound effect
                 _attachPitcher.Play(_audioSource);
+                unitManager.AddUnit(u);
             }
             else
             {
