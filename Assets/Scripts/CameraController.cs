@@ -10,11 +10,11 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        unitManager = GetComponentInParent<UnitManager>();
+        //unitManager = GetComponentInParent<UnitManager>();
 
-        unitSize = unitManager.GetExtents();
+        //unitSize = unitManager.GetExtents();
 
-        cam.orthographicSize = unitSize.x / 2;
+        //cam.orthographicSize = unitSize.x / 2;
     }
 
     private void Update()

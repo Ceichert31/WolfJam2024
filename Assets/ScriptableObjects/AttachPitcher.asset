@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c977d48ea4b483740b523f3df2dc90f9, type: 3}
+  m_Name: AttachPitcher
+  m_EditorClassIdentifier: 
+  audioClipList:
+  - {fileID: 8300000, guid: 4048689873d33a345a61e49317b1fe98, type: 3}
+  - {fileID: 8300000, guid: 7eb2154e071d93b488b7a58984e404c6, type: 3}
+  - {fileID: 8300000, guid: 342ab199fc925ea429d1f626e8c61f22, type: 3}
+  - {fileID: 8300000, guid: 474115a3ad9bf82429e8b6bab922659a, type: 3}
+  - {fileID: 8300000, guid: cae32dc1bc5ce5f4bb15ef6dbb26915f, type: 3}
+  - {fileID: 8300000, guid: b4617d4caddf7a3498007d8272b35110, type: 3}
+  volume:
+    Min: 1
+    Max: 1
+  pitch:
+    Min: 0.9
+    Max: 1.3
