@@ -26,14 +26,17 @@ public class ProjectileSpawner : MonoBehaviour
     
     private void Update()
     {
+        Debug.DrawRay(transform.position, transform.forward * 3f, Color.yellow);
+
+        //Flamethrower functionallity
+        if (!canRotate) return;
+
         if (instance != null) return;
 
         if (!reverseDirection)
             instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ)));
         else
             instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ)));
-
-        Debug.DrawRay(transform.position, transform.forward * 3f, Color.yellow);
     }
 
     IEnumerator RotateTo(Vector3 startEuler, Vector3 targetEuler)
