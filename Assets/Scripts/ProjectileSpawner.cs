@@ -9,19 +9,25 @@ public class ProjectileSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnProjectiles(3, 1);
+        SpawnProjectiles(3, 1f, 5f);
     }
 
-    void SpawnProjectiles(int projectileNumber, float delayBetweenProjectiles)
+    /// <summary>
+    /// Spawns a certain number of projectiles at certain intervals
+    /// </summary>
+    /// <param name="projectileNum"></param>
+    /// <param name="delayBetween"></param>
+    /// <param name="projectileSpeed"></param>
+    void SpawnProjectiles(int projectileNum, float delayBetween, float projectileSpeed)
     {
-        StartCoroutine(SpawnPattern(projectileNumber, delayBetweenProjectiles));
+        StartCoroutine(SpawnPattern(projectileNum, delayBetween, projectileSpeed));
     }
 
-    IEnumerator SpawnPattern(int projectileNumber, float delayBetweenProjectiles)
+    IEnumerator SpawnPattern(int projectileNum, float delayBetween, float projectileSpeed)
     {
-        WaitForSeconds waitTime = new WaitForSeconds(delayBetweenProjectiles);
+        WaitForSeconds waitTime = new WaitForSeconds(delayBetween);
 
-        for (int i = 0; i < projectileNumber; i++)
+        for (int i = 0; i < projectileNum; i++)
         {
             //Create projectile instance
             GameObject instance = Instantiate(projectile, transform.position, Quaternion.identity);
