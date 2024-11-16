@@ -34,4 +34,9 @@ public abstract class Unit : MonoBehaviour
 
         return units;
     }
+
+    public virtual void UpdateUnit()
+    {
+
+    }
 }

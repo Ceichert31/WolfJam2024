@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Tilemaps;
 
 public class UnitManager : MonoBehaviour
 {
@@ -33,17 +32,22 @@ public class UnitManager : MonoBehaviour
 
     public void AddUnit()
     {
-
+        foreach(Unit unit in _units)
+        {
+            unit.UpdateUnit();
+        }
     }
 
-    public bool CanAddUnit()
+    public bool CanAddUnit(Vector2 worldPos)
     {
         return true;
     }
 
-    public void RemoveUnit()
+    public void RemoveUnit(Unit unit)
     {
+        if (!_units.Contains(unit)) return;
 
+        _units.Remove(unit);
     }
 
     public bool TryGetUnitAtPosition(Vector2 worldPos, out Unit unit)
