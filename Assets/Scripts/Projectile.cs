@@ -3,30 +3,58 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private int destroyMask;
+
     private Rigidbody2D rb;
 
     private Vector2 targetDirection;
 
-    private float speed = 1f;
+    private ProjectileStats stats;
 
+    private float waitTime;
     private Vector2 playerPosition => GameManager.Instance.Player.position;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        //Calculate target direction
         targetDirection = (playerPosition - (Vector2)transform.position).normalized;
+
+        //Set lifetime duration
+        waitTime = Time.time + stats.LifeTime;
     }
 
     /// <summary>
     /// Sets the speed of a projectile (Default 1)
     /// </summary>
     /// <param name="speed"></param>
-    public void SetSpeed(float speed) => this.speed = speed;
+    public void SetStats(ProjectileStats stats) => this.stats = stats;
 
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = targetDirection * speed;
+        Debug.DrawRay(transform.position, targetDirection * stats.Speed, Color.red);
+
+        rb.linearVelocity = targetDirection * stats.Speed;
+
+        //Destroy projectile once lifetime is over
+        if (waitTime <= Time.time)
+            DestroyProjectile();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == destroyMask)
+        {
+            DestroyProjectile();
+        }
+    }
+
+    private void DestroyProjectile()
+    {
+        //Play effects
+        Destroy(gameObject);
     }
 }
