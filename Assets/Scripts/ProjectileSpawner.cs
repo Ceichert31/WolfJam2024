@@ -8,12 +8,10 @@ public class ProjectileSpawner : MonoBehaviour
 
     [SerializeField] private ProjectileStats projectileStats;
 
-    private Transform spawnPoint;
-
+    [SerializeField] private bool canRotate;
+    [SerializeField] private float rotationAngle;
     void Start()
     {
-        spawnPoint = transform.GetChild(0);
-
         SpawnProjectiles(100, 0.3f, projectileStats);
     }
 
@@ -35,9 +33,9 @@ public class ProjectileSpawner : MonoBehaviour
         for (int i = 0; i < projectileNum; i++)
         {
             //Create projectile instance
-            Projectile instance = Instantiate(projectile, spawnPoint.position, Quaternion.identity).GetComponent<Projectile>();
+            Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Projectile>();
+            stats.Direction = -transform.right;
 
-            instance.SetDirection(spawnPoint.position);
             //Set Projectile speed
             instance.SetStats(stats);
             yield return waitTime;
@@ -51,10 +49,12 @@ public struct ProjectileStats
 {
     public float Speed;
     public float LifeTime;
+    [HideInInspector] public Vector2 Direction;
 
-    public ProjectileStats(float speed, float lifeTime)
+    public ProjectileStats(float speed, float lifeTime, Vector2 direction)
     {
         Speed = speed;
         LifeTime = lifeTime;
+        Direction = direction;
     }
 }
