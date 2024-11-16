@@ -8,9 +8,13 @@ public class ProjectileSpawner : MonoBehaviour
 
     [SerializeField] private ProjectileStats projectileStats;
 
+    private Transform spawnPoint;
+
     void Start()
     {
-        SpawnProjectiles(100, 1f, projectileStats);
+        spawnPoint = transform.GetChild(0);
+
+        SpawnProjectiles(100, 0.3f, projectileStats);
     }
 
     /// <summary>
@@ -31,8 +35,9 @@ public class ProjectileSpawner : MonoBehaviour
         for (int i = 0; i < projectileNum; i++)
         {
             //Create projectile instance
-            Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Projectile>();
+            Projectile instance = Instantiate(projectile, spawnPoint.position, Quaternion.identity).GetComponent<Projectile>();
 
+            instance.SetDirection(spawnPoint.position);
             //Set Projectile speed
             instance.SetStats(stats);
             yield return waitTime;
