@@ -69,7 +69,11 @@ public class ProjectileSpawner : MonoBehaviour
     
     private void Update()
     {
-        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) return;
+        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) 
+        {
+            StopAllCoroutines();
+            return;
+        }
 
         if (isAutoAimEnabled)
         {
