@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         Lose
     }
 
-    private EGameState gameState;
+    private EGameState gameState = EGameState.Playing;
 
     private int score;
 
@@ -35,6 +35,22 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void Update()
+    {
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if(gameState == EGameState.Playing)
+            {
+                UpdateGameState(EGameState.Building);
+            }
+            else if (gameState == EGameState.Building)
+            {
+                UpdateGameState(EGameState.Playing);
+            }
         }
     }
 

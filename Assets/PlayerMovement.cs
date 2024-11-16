@@ -8,15 +8,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float unitBounceForce;
     [SerializeField] float enemyBounceMultiplier;
 
+    private bool canMove = true;
 
-    void Start()
+    private void Update()
     {
-        
+        if (GameManager.Instance.GameState != GameManager.EGameState.Playing)
+        {
+            body.linearVelocity = Vector2.zero;
+
+            canMove = false;
+        }
+        else {
+            canMove = true;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!canMove) return;
+
         Movement();
     }
 
