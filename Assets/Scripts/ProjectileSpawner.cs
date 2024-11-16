@@ -34,7 +34,10 @@ public class ProjectileSpawner : MonoBehaviour
     private bool reverseDirection;
     private Coroutine instance;
 
-    
+    private float localClampMin;
+    private float localClampMax;
+    private float angle;
+
     void Start()
     {
         SpawnProjectiles(100, 0.3f, projectileStats);
@@ -60,6 +63,9 @@ public class ProjectileSpawner : MonoBehaviour
                 }
             }
 
+            localClampMin = transform.eulerAngles.z + minRotationZ;
+            localClampMax = transform.eulerAngles.z + maxRotationZ;
+
             //Rotate
             if (targetEnemy != null)
             {
@@ -67,11 +73,14 @@ public class ProjectileSpawner : MonoBehaviour
                 //Debug
                 Debug.DrawRay(transform.position, targetDirection * 3f, Color.yellow);
 
-                float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+                angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+                angle = Mathf.Clamp(angle, localClampMin, localClampMax);
+                Debug.Log(angle);
                 Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 1000 * Time.deltaTime);
             }
         }
+
 
         //instance = StartCoroutine(RotateTo(transform.eulerAngles, new(transform.eulerAngles.x, transform.eulerAngles.y, angle)));
         //angle = Mathf.Clamp(angle, minRotationZ, maxRotationZ);
