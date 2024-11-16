@@ -30,7 +30,10 @@ public class ProjectileSpawner : MonoBehaviour
         for (int i = 0; i < projectileNum; i++)
         {
             //Create projectile instance
-            GameObject instance = Instantiate(projectile, transform.position, Quaternion.identity);
+            Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Projectile>();
+
+            //Set Projectile speed
+            instance.SetSpeed(projectileSpeed);
             yield return waitTime;
         }
         yield return null;

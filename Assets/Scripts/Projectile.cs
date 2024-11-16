@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        targetDirection = (playerPosition - (Vector2)transform.position);
+        targetDirection = (playerPosition - (Vector2)transform.position).normalized;
     }
 
     /// <summary>
