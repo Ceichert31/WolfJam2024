@@ -44,17 +44,68 @@ public class UnitManager : MonoBehaviour
         if(IsTestingMode) RemoveUnit(_units[0]);
     }
 
-    public void AddUnit()
+    public void AddUnit(Unit unit)
     {
-        foreach(Unit unit in _units)
+        unit.Setup(this);
+
+        foreach(Unit u in _units)
         {
-            unit.UpdateUnit();
+            u.UpdateUnit();
         }
     }
 
-    public bool CanAddUnit(Vector2 worldPos)
+    public bool CanAddUnit(Vector2 worldPos, Unit unit)
     {
+        // unit here, cant add
+        if (IsUnitInTheWay(worldPos))
+        {
+            Debug.Log("theres a unit in the way");
+            return false;
+        }
+        if (!IsConnected(worldPos)) return false;
+
         return true;
+    }
+
+    public bool IsUnitInTheWay(Vector2 worldPos)
+    {
+        if (TryGetUnitAtPosition(worldPos, out Unit u))
+        {
+            Debug.Log("theres a unit in the way");
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool IsConnected(Vector3 worldPos)
+    {
+        // there will be 8 neighboring tiles (null tiles are null)
+        List<Unit> units = new List<Unit>();
+
+        for (int i = 1; i >= -1; i--)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                // get if possible and add to list
+                if (TryGetUnitAtPosition(worldPos + new Vector3(j, i), out Unit unit))
+                {
+                    units.Add(unit);
+                }
+                else
+                {
+                    units.Add(null);
+                }
+            }
+        }
+
+        // 4 is the center. 1 is up, 3 is left, 5 is ri
+        if (units[1] != null || units[3] != null || units[5] != null || units[7] != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public void RemoveUnit(Unit unit)

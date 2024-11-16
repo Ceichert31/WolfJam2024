@@ -54,6 +54,7 @@ public class DetatchedUnitHandler : MonoBehaviour
             cursor.SetUnit(unit);
             cursorToUnitPair.Add(unit, cursor);
             cursor.ShowCursor();
+            cursor.HideValidityCheck();
         }
 
         // STOP
@@ -81,6 +82,7 @@ public class DetatchedUnitHandler : MonoBehaviour
 
     private void UpdateSelectedUnitPosition()
     {
+        if (GameManager.Instance.GameState != GameManager.EGameState.Building) return;
         if (selectedUnit == null) return;
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -91,6 +93,20 @@ public class DetatchedUnitHandler : MonoBehaviour
         Vector3 point = closestPoint + GameManager.Instance.Player.transform.position + new Vector3(0.5f, 0.5f);
 
         selectedUnit.transform.position = point;
+
+        // show validity on screen
+        UnitManager unitManager = GameManager.Instance.Player.GetComponent<UnitManager>();
+
+        if (!unitManager.IsUnitInTheWay(point) && !unitManager.IsConnected(point))
+        {
+            cursorToUnitPair[selectedUnit].HideValidityCheck();
+        }
+        else {
+            cursorToUnitPair[selectedUnit].ShowValidityCheck(unitManager.CanAddUnit(point, selectedUnit));
+        }
+
+        // detect if works
+        //Debug.Log(GameManager.Instance.Player.GetComponent<UnitManager>().CanAddUnit(point, selectedUnit));
     }
 
     private List<Unit> GetAllUnits()
@@ -111,6 +127,8 @@ public class DetatchedUnitHandler : MonoBehaviour
 
     public void SetSelectedUnit(Unit unit)
     {
+        if (GameManager.Instance.GameState != GameManager.EGameState.Building) return;
+
         selectedUnit = unit;
     }
 }
