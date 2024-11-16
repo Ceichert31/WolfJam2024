@@ -58,11 +58,12 @@ MonoBehaviour:
   range: 10
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   canRotate: 0
   minRotationZ: -60
   maxRotationZ: 60
   rotationTime: 0.1
+  unit: {fileID: 0}
   firingPitcher: {fileID: 11400000, guid: 30726c4af73214a47bf9a8fbaef224a6, type: 2}
 --- !u!82 &4645058140885502142
 AudioSource:
