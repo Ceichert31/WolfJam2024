@@ -19,7 +19,6 @@ public class DetatchedUnitHandler : MonoBehaviour
 
     [Header("Audio References")]
     [SerializeField] private AudioPitcherSO _attachPitcher;
-    [SerializeField] private AudioPitcherSO _detachPitcher;
     private AudioSource _audioSource => Camera.main.GetComponent<AudioSource>();
 
     private void Awake()
@@ -184,9 +183,6 @@ public class DetatchedUnitHandler : MonoBehaviour
                 Destroy(cursorToUnitPair[units[i]].gameObject);
 
                 Destroy(units[i].gameObject);
-
-                //Play detach audio
-                _detachPitcher.Play(_audioSource);
             }
             else
             {

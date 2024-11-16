@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c977d48ea4b483740b523f3df2dc90f9, type: 3}
-  m_Name: DetachPitcher
+  m_Name: DeathPitcher
   m_EditorClassIdentifier: 
   audioClipList:
   - {fileID: 8300000, guid: db7a766d5e29e5343abc3a5ac052c5e4, type: 3}
