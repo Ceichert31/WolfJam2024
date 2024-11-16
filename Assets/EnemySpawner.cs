@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] public float gameTime;
     [SerializeField] float currentCurrency;
     Transform enemyContainer;
     Transform player;
@@ -17,18 +16,19 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] EnemyTier[] enemyTiers;
     EnemyTier nextEnemyTier;
     public bool readyForNewEnemy;
-    void Awake()
+
+
+    void Start()
     {
         enemyContainer = GameObject.Find("EnemyContainer").transform;
         player = GameObject.FindWithTag("Player").transform;
+        nextEnemyTier = GetNextEnemyTier();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameTime += Time.deltaTime;
-
-
         if (readyForNewEnemy)
         {
             nextEnemyTier = GetNextEnemyTier();
@@ -91,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPos = new Vector2(spawnSide.x, spawnOffset) + new Vector2(player.position.x, player.position.y);
         }
-        Instantiate(enemy, spawnPos, Quaternion.identity, enemyContainer);
+        Instantiate(enemy, spawnPos, Quaternion.identity);
     }
 
     EnemyTier GetNextEnemyTier()
@@ -100,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
         do
         {
             nextTierSpawned = enemyTiers[Random.Range(0, enemyTiers.Length)];
-        } while (nextTierSpawned.startSpawnTime > gameTime);
+        } while (nextTierSpawned.startSpawnTime > GameManager.Instance.TimePlaying);
 
         return nextTierSpawned;
     }

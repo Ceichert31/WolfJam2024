@@ -5,8 +5,9 @@ public class TimerUI : MonoBehaviour
 {
     [SerializeField] EnemySpawner spawner;
     [SerializeField] TextMeshProUGUI textTimer;
+
     void Update()
     {
-        textTimer.text = spawner.gameTime.ToString("F2");
+        textTimer.text = GameManager.Instance.TimePlaying.ToString("F2");
     }
 }

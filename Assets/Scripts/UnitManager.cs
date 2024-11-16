@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 
+[RequireComponent(typeof(Health))]
 public class UnitManager : MonoBehaviour
 {
     [Header("References")]
@@ -15,19 +16,15 @@ public class UnitManager : MonoBehaviour
     [SerializeField]
     private Transform _unitHolders;
 
-    [SerializeField]
     private Transform _testDetachedUnitHolder;
-
-    [Header("Health")]
-    [SerializeField]
-    private Health _myHealth;
 
     [SerializeField]
     private bool _isPlayerShip = false;
 
-    public bool IsTestingMode = false;
+    //public bool IsTestingMode = false;
+    //public bool IsTestingUnitDeath = false;
 
-    public bool IsTestingUnitDeath = false;
+    private Health _myHealth;
 
     // Getters
     public Transform DetachedGridHolder { get { return _testDetachedUnitHolder; } }
@@ -49,15 +46,19 @@ public class UnitManager : MonoBehaviour
             }
         }
 
-        if(IsTestingMode) RemoveUnit(_units[0]);
+        _testDetachedUnitHolder = FindFirstObjectByType<DetatchedUnitHandler>().gameObject.transform;
+
+        //if(IsTestingMode) RemoveUnit(_units[0]);
+
+        _myHealth = GetComponent<Health>();
 
         _myHealth.OnDeath += Death;
         _myHealth.OnHealthUpdate += HealthUpdate;
 
-        if (IsTestingUnitDeath)
+        /*if (IsTestingUnitDeath)
         {
             _myHealth.TakeDamage(10000);
-        }
+        }*/
     }
 
     public void Death()

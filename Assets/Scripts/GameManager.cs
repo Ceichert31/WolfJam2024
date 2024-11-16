@@ -16,10 +16,14 @@ public class GameManager : MonoBehaviour
 
     private EGameState gameState = EGameState.Playing;
 
-    private int score;
+    private float timePlaying;
+    private int kills;
+    private int connections;
 
     // Getters
-    public int Score { get { return score; } }
+    public float TimePlaying { get { return timePlaying; } }
+    public int Kills { get { return kills; } }
+    public int Connections { get { return connections; } }
     public EGameState GameState { get { return gameState; } }
 
     // Helper functions
@@ -40,7 +44,13 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        //DEBUG
+        if (gameState == EGameState.Lose) return;
+
+        if (gameState == EGameState.Playing)
+        {
+            timePlaying += Time.deltaTime;
+        }
+
         if (Input.GetMouseButtonDown(1))
         {
             if(gameState == EGameState.Playing)
@@ -62,8 +72,13 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(gameState);
     }
 
-    public void UpdateScore(int scoreCount)
+    public void AddToKills()
     {
-        score += scoreCount;
+        kills++;
+    }
+
+    public void AddToConnections()
+    {
+        connections++;
     }
 }
