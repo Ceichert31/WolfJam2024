@@ -17,6 +17,11 @@ public class DetatchedUnitHandler : MonoBehaviour
     private Dictionary<Unit, UnitCursor> cursorToUnitPair = new Dictionary<Unit, UnitCursor>();
     public bool CanSelectUnits { get { return canSelectUnits; } }
 
+    [Header("Audio References")]
+    [SerializeField] private AudioPitcherSO _attachPitcher;
+    [SerializeField] private AudioPitcherSO _detachPitcher;
+    private AudioSource _audioSource => Camera.main.GetComponent<AudioSource>();
+
     private void Awake()
     {
         if(instance == null)
@@ -86,6 +91,9 @@ public class DetatchedUnitHandler : MonoBehaviour
             {
                 Debug.Log("we added this unit bru");
                 unitManager.AddUnit(u);
+
+                //Play sound effect
+                _attachPitcher.Play(_audioSource);
             }
             else
             {
@@ -176,6 +184,9 @@ public class DetatchedUnitHandler : MonoBehaviour
                 Destroy(cursorToUnitPair[units[i]].gameObject);
 
                 Destroy(units[i].gameObject);
+
+                //Play detach audio
+                _detachPitcher.Play(_audioSource);
             }
             else
             {
