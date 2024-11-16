@@ -770,6 +770,7 @@ MonoBehaviour:
   _tilemap: {fileID: 564576214}
   _unitHolders: {fileID: 564576212}
   _testDetachedUnitHolder: {fileID: 1378942031}
+  IsTestingMode: 0
 --- !u!156049354 &846819691
 Grid:
   m_ObjectHideFlags: 0
@@ -1381,6 +1382,7 @@ MonoBehaviour:
   _tilemap: {fileID: 611077886}
   _unitHolders: {fileID: 611077884}
   _testDetachedUnitHolder: {fileID: 1378942031}
+  IsTestingMode: 1
 --- !u!156049354 &1721269770
 Grid:
   m_ObjectHideFlags: 0
