@@ -50,6 +50,7 @@ public class DetatchedUnitHandler : MonoBehaviour
         foreach(Unit unit in units)
         {
             UnitCursor cursor = Instantiate(_cursorPrefab, unit.transform.position, Quaternion.identity);
+            unit.gameObject.layer = LayerMask.NameToLayer("BuilderModeUnit");
 
             cursor.SetUnit(unit);
             cursorToUnitPair.Add(unit, cursor);

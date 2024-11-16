@@ -28,6 +28,7 @@ public abstract class Unit : MonoBehaviour
             Destroy(_rigidbody);
         }
 
+        gameObject.layer = LayerMask.NameToLayer("Default");
         this.myUnitManager = myUnitManager;
 
         shipUnitState = ShipUnitState.Attached;
