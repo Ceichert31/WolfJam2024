@@ -15,7 +15,7 @@ public class MouseCursor : MonoBehaviour
         {
             _myRenderer.enabled = false;
         }
-        else
+        else if(GameManager.Instance.GameState == GameManager.EGameState.Building)
         {
             _myRenderer.enabled = true;
         }
