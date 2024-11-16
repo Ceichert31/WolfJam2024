@@ -13,6 +13,9 @@ public abstract class Unit : MonoBehaviour
     [SerializeField]
     private Collider2D _myCollider;
 
+    [SerializeField]
+    private float _detatchementForce = 4.0f;
+
     private Rigidbody2D _rigidbody;
 
     [HideInInspector] protected UnitManager myUnitManager;
@@ -92,6 +95,11 @@ public abstract class Unit : MonoBehaviour
         _rigidbody.simulated = true;
         _rigidbody.gravityScale = 0;
         _rigidbody.freezeRotation = true;
+
+        Vector2 dir = Random.insideUnitCircle;
+        dir.Normalize();
+
+        _rigidbody.AddForce(dir * _detatchementForce, ForceMode2D.Impulse);
     }
 
     public void OnMouseEnter()
