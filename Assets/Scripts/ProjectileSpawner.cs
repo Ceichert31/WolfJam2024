@@ -69,6 +69,7 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 foreach (Collider2D enemy in enemies)
                 {
+                    Debug.Log(enemy);
                     float distance = Vector2.Distance(enemy.transform.position, transform.position);
                     if (distance < closestEnemy)
                     {
@@ -89,8 +90,7 @@ public class ProjectileSpawner : MonoBehaviour
 
                 Debug.Log(angle);
 */
-                if (angle < -0.6 || angle > 0.6)
-                    gameObject.transform.right = targetDirection;
+                gameObject.transform.right = targetDirection;
             }
         }
         else

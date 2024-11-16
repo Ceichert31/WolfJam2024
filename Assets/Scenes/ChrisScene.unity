@@ -171,6 +171,7 @@ MonoBehaviour:
     Direction: {x: 0, y: 0}
     EnemyLayer: 0
     ParentObject: {fileID: 0}
+    Damage: 0
   isAutoAimEnabled: 1
   range: 10
   enemyLayer:
@@ -180,6 +181,7 @@ MonoBehaviour:
   minRotationZ: -60
   maxRotationZ: 60
   rotationTime: 0.1
+  firingPitcher: {fileID: 0}
 --- !u!1 &142164737
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +285,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &312703801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +305,7 @@ MonoBehaviour:
     Direction: {x: 0, y: 0}
     EnemyLayer: 0
     ParentObject: {fileID: 0}
+    Damage: 0
   isAutoAimEnabled: 1
   range: 10
   enemyLayer:
@@ -312,6 +315,7 @@ MonoBehaviour:
   minRotationZ: -60
   maxRotationZ: 60
   rotationTime: 0.1
+  firingPitcher: {fileID: 11400000, guid: 30726c4af73214a47bf9a8fbaef224a6, type: 2}
 --- !u!4 &312703802
 Transform:
   m_ObjectHideFlags: 0
@@ -1531,6 +1535,7 @@ MonoBehaviour:
     Direction: {x: 0, y: 0}
     EnemyLayer: 0
     ParentObject: {fileID: 0}
+    Damage: 0
   isAutoAimEnabled: 1
   range: 10
   enemyLayer:
@@ -1540,6 +1545,7 @@ MonoBehaviour:
   minRotationZ: -60
   maxRotationZ: 60
   rotationTime: 0.1
+  firingPitcher: {fileID: 0}
 --- !u!1001 &5761367448809332863
 PrefabInstance:
   m_ObjectHideFlags: 0
