@@ -285,6 +285,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PeashooterUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 4019781560158285366, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019781560158285366, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019781560158285366, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -738,7 +750,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

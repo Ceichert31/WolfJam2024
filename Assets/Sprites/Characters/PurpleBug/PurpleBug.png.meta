@@ -122,89 +122,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: purpleBug-Sheet-Sheet_0
+      name: purpleBug_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 28
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f07364c742287b90800000000000000
-      internalID: -7244002308992569104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: purpleBug-Sheet-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 1
-        width: 28
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc87736137b8b0200800000000000000
-      internalID: 147364739229907149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: purpleBug-Sheet-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 1
-        width: 27
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ebb0711d14f1026c0800000000000000
-      internalID: -4170298887403795522
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: purpleBug-Sheet-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 98
+        x: 0
         y: 0
-        width: 24
-        height: 27
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9721feaed5dcce140800000000000000
-      internalID: 4750397510226219641
+      spriteID: 4f76ee57666835a4d878b462f7972d30
+      internalID: -1183475116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purpleBug_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6710d9a6f1e67dd4fbc4d277e395987e
+      internalID: 208669972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purpleBug_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31408856471a6f7469da6fa6d52e7a4e
+      internalID: 1222144672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purpleBug_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4a3c68cacda1c418e4de035ac55900
+      internalID: -41452413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purpleBug_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad240c8f1348b94db4d7e47023a407b
+      internalID: 1722516852
       vertices: []
       indices: 
       edges: []
@@ -213,7 +235,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e6b5a3675da824c4c9f2872df1e05d61
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +245,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      purpleBug-Sheet-Sheet_0: -7244002308992569104
-      purpleBug-Sheet-Sheet_1: 147364739229907149
-      purpleBug-Sheet-Sheet_2: -4170298887403795522
-      purpleBug-Sheet-Sheet_3: 4750397510226219641
+      purpleBug_0: -1183475116
+      purpleBug_1: 208669972
+      purpleBug_2: 1222144672
+      purpleBug_3: -41452413
+      purpleBug_4: 1722516852
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
