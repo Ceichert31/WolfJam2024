@@ -38,6 +38,7 @@ public class UnitManager : MonoBehaviour
     public Health MyHealth { get { return _myHealth; } }
     public bool IsPlayerShip { get { return _isPlayerShip; } }
 
+
     private void Start()
     {
         // get all units from the unit holder
@@ -59,11 +60,6 @@ public class UnitManager : MonoBehaviour
 
         _myHealth.OnDeath += Death;
         _myHealth.OnHealthUpdate += HealthUpdate;
-
-        /*if (IsTestingUnitDeath)
-        {
-            _myHealth.TakeDamage(10000);
-        }*/
     }
 
     public void Death()
@@ -72,28 +68,28 @@ public class UnitManager : MonoBehaviour
 
         if (_isPlayerShip)
         {
-            Debug.Log("I JHUST DIED AND IM THE LPAYER");
-
-            //Play death audio
-            deathPitcher.Play(_audioSource);
+            RemoveAllUnits();
 
             GameManager.Instance.UpdateGameState(GameManager.EGameState.Lose);
         }
         else
         {
-            Debug.DrawRay(GetShipCenterPoint(), Vector2.up * 5.0f, Color.blue, 5.0f);
-            // detatch all
-            while (_units.Count > 0)
-            {
-                Unit u = _units[0];
-                RemoveUnit(_units[0]);
+            RemoveAllUnits();
+            GameManager.Instance.AddToKills();
 
-                u.ExplodeFromPoint(GetShipCenterPoint());
-                GameManager.Instance.AddToKills();
+            //Play death audio
+            deathPitcher.Play(_audioSource);
+        }
+    }
 
-                //Play death audio
-                deathPitcher.Play(_audioSource);
-            }
+    private void RemoveAllUnits()
+    {
+        // detatch all
+        while (_units.Count > 0)
+        {
+            Unit u = _units[0];
+            RemoveUnit(_units[0]);
+            u.ExplodeFromPoint(GetShipCenterPoint());
         }
     }
 
