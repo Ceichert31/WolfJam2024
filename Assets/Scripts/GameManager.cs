@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public GameManager instance;
 
+    public Transform Player;
+
     // 
     public enum EGameState
     {
