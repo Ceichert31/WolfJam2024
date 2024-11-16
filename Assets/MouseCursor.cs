@@ -8,10 +8,6 @@ public class MouseCursor : MonoBehaviour
     [SerializeField]
     private Vector3 _mouseOffset = new Vector3(0.4f, -0.2f);
 
-    private void Start()
-    {
-        //Cursor.visible = false;
-    }
 
     void Update()
     {
@@ -28,5 +24,7 @@ public class MouseCursor : MonoBehaviour
         mousePos.z = 0.0f;
 
         transform.position = mousePos + _mouseOffset;
+
+        Cursor.visible = false;
     }
 }

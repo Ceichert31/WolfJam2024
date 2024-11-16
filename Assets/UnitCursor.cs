@@ -16,6 +16,9 @@ public class UnitCursor : MonoBehaviour
     [SerializeField]
     private Color _invalidColor;
 
+    [SerializeField]
+    private Color _holdingColor;
+
     public void SetUnit(Unit unit)
     {
         this.unit = unit;
@@ -34,6 +37,13 @@ public class UnitCursor : MonoBehaviour
     public void ShowCursor()
     {
         _renderer.enabled = true;
+    }
+
+    public void Holding()
+    {
+        _validityCheckRenderer.enabled = true;
+
+        _validityCheckRenderer.color = new Color(_holdingColor.r, _holdingColor.g, _holdingColor.b, _validityCheckRenderer.color.a);
     }
 
     public void ShowValidityCheck(bool isValid)

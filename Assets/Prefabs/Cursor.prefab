@@ -123,6 +123,7 @@ MonoBehaviour:
   _validityCheckRenderer: {fileID: 372371524864677912}
   _validColor: {r: 0.20624185, g: 1, b: 0, a: 1}
   _invalidColor: {r: 1, g: 0, b: 0, a: 1}
+  _holdingColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &863205748570444112
 GameObject:
   m_ObjectHideFlags: 0

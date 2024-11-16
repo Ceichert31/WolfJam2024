@@ -12,6 +12,7 @@ public class DetatchedUnitHandler : MonoBehaviour
     private bool canSelectUnits;
 
     public Unit selectedUnit;
+    private Unit lastUnitHeld;
 
     private Dictionary<Unit, UnitCursor> cursorToUnitPair = new Dictionary<Unit, UnitCursor>();
     public bool CanSelectUnits { get { return canSelectUnits; } }
@@ -103,7 +104,11 @@ public class DetatchedUnitHandler : MonoBehaviour
     private void UpdateSelectedUnitPosition()
     {
         if (GameManager.Instance.GameState != GameManager.EGameState.Building) return;
-        if (selectedUnit == null) return;
+        if (selectedUnit == null)
+        {
+            if(lastUnitHeld != null) cursorToUnitPair[lastUnitHeld].HideValidityCheck();
+            return;
+        }
 
         Vector3 point = GetGridPosition();
         selectedUnit.transform.position = point;
@@ -113,7 +118,8 @@ public class DetatchedUnitHandler : MonoBehaviour
 
         if (!unitManager.IsUnitInTheWay(point) && !unitManager.IsConnected(point))
         {
-            cursorToUnitPair[selectedUnit].HideValidityCheck();
+            //cursorToUnitPair[selectedUnit].HideValidityCheck();
+            cursorToUnitPair[selectedUnit].Holding();
         }
         else {
             cursorToUnitPair[selectedUnit].ShowValidityCheck(unitManager.CanAddUnit(point, selectedUnit));
@@ -155,6 +161,8 @@ public class DetatchedUnitHandler : MonoBehaviour
         selectedUnit = unit;
 
         if (unit == null) return;
+        lastUnitHeld = selectedUnit;
+
         List<Unit> units = GetAllUnits();
 
         UnitCursor currentCursor = null;

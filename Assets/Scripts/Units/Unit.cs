@@ -105,6 +105,8 @@ public abstract class Unit : MonoBehaviour
     public void OnMouseEnter()
     {
         if (!DetatchedUnitHandler.instance.CanSelectUnits) return;
+
+        // hover
     }
 
     public void OnMouseDown()
