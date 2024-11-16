@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public delegate void GameStateChanged(EGameState state);
     public GameStateChanged OnGameStateChanged;
 
-    private void Awake()
+    private void OnEnable()
     {
         if (Instance == null)
         {
