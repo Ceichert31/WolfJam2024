@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &63101518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63101519}
+  m_Layer: 0
+  m_Name: StarBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &63101519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63101518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3711901, y: 1.204193, z: 0.52365565}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158762136
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +698,10 @@ MonoBehaviour:
   _tilemap: {fileID: 705167595}
   _unitHolders: {fileID: 705167593}
   _testDetachedUnitHolder: {fileID: 0}
+  _myHealth: {fileID: 0}
+  _isPlayerShip: 0
   IsTestingMode: 0
+  IsTestingUnitDeath: 0
 --- !u!156049354 &1165067613
 Grid:
   m_ObjectHideFlags: 0
@@ -1206,3 +1240,4 @@ SceneRoots:
   - {fileID: 608052859}
   - {fileID: 1701893912}
   - {fileID: 1550398206}
+  - {fileID: 63101519}
