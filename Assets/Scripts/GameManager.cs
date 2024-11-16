@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         //DEBUG
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetMouseButtonDown(1))
         {
             if(gameState == EGameState.Playing)
             {

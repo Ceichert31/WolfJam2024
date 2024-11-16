@@ -46,6 +46,14 @@ public class UnitManager : MonoBehaviour
 
     public void AddUnit(Unit unit)
     {
+        Tile tile = new Tile();
+        tile.gameObject = unit.gameObject;
+        _tilemap.SetTile(_myGrid.WorldToCell(unit.transform.position), tile);
+        tile.RefreshTile(_myGrid.WorldToCell(unit.transform.position), _tilemap);
+
+        //
+        
+        unit.transform.parent = _unitHolders.transform;
         unit.Setup(this);
 
         foreach(Unit u in _units)
