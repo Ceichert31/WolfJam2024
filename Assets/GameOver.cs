@@ -20,6 +20,15 @@ public class GameOver : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _pressAnyKeyText;
 
+    [SerializeField]
+    private AudioClip _laughTrack;
+
+    [SerializeField]
+    private AudioClip _appearTrack;
+
+    [SerializeField]
+    private AudioSource _source;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +41,18 @@ public class GameOver : MonoBehaviour
         if (gameState != GameManager.EGameState.Lose) return;
 
         StartCoroutine(DisplayGameover());
+    }
+
+    private bool allowKeypress;
+
+    private void Update()
+    {
+        if (allowKeypress)
+        {
+            if (Input.anyKey) {
+                GameManager.Instance.HandleRestart();
+            }
+        }
     }
 
     private IEnumerator DisplayGameover()
@@ -50,24 +71,35 @@ public class GameOver : MonoBehaviour
         _killsText.text = "";
         _connectionsText.text = "";
 
-        yield return new WaitForSecondsRealtime(4.0f);
+        yield return new WaitForSecondsRealtime(1.0f);
+        _source.clip = _laughTrack;
+        _source.Play();
+
+        yield return new WaitForSecondsRealtime(3.0f);
+        _source.PlayOneShot(_appearTrack, 0.7f);
 
 
         _holder.gameObject.SetActive(true);
         // wait to display everything
         yield return new WaitForSecondsRealtime(0.5f);
+        _source.PlayOneShot(_appearTrack, 0.7f);
         _timeText.enabled = true;
         _timeText.text = "TIME: " + time.ToString("F2");
 
         yield return new WaitForSecondsRealtime(0.5f);
+        _source.PlayOneShot(_appearTrack, 0.7f);
         _killsText.enabled = true;
         _killsText.text = "KILLS: " + kills.ToString();
 
         yield return new WaitForSecondsRealtime(0.5f);
+        _source.PlayOneShot(_appearTrack, 0.7f);
         _connectionsText.enabled = true;
         _connectionsText.text = "CONNECTIONS: " + connections.ToString();
 
         yield return new WaitForSecondsRealtime(0.5f);
+        _source.PlayOneShot(_appearTrack, 0.7f);
         _pressAnyKeyText.enabled = true;
+
+        allowKeypress = true;
     }
 }

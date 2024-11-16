@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,6 +51,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HandleRestart()
+    {
+        // reload
+
+        Time.timeScale = 1.0f;
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
+
     public void Update()
     {
         // auto lose
@@ -96,6 +107,7 @@ public class GameManager : MonoBehaviour
     {
         float elapsed = 0.0f;
 
+        // lerp slow down time back to zero
         while(elapsed < _slowDownTime)
         {
             elapsed += Time.unscaledDeltaTime;
