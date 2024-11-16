@@ -23,6 +23,8 @@ public class Health : MonoBehaviour
     public delegate void Death();
     public Death OnDeath;
 
+    [SerializeField] GameObject DeathParticle;
+
     private void Start()
     {
         // setup variables
@@ -57,6 +59,11 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             OnDeath?.Invoke();
+            if (DeathParticle != null)
+            {
+                Instantiate(DeathParticle, transform.position, Quaternion.identity);
+            }
+            _canTakeDamage = false;
             EffectManager.instance.CameraShake(0.3f, 0.6f, 9);
         }
 
