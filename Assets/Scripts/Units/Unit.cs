@@ -19,7 +19,7 @@ public abstract class Unit : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     [HideInInspector] protected UnitManager myUnitManager;
-    [HideInInspector] protected ShipUnitState shipUnitState;
+    protected ShipUnitState shipUnitState;
 
     public ShipUnitState MyShipUnitState { get { return shipUnitState; } }
     public UnitManager MyUnitManager { get { return myUnitManager; } }

@@ -39,7 +39,7 @@ public class ProjectileSpawner : MonoBehaviour
     private float currentRotationTime;
     private bool reverseDirection;
     private Coroutine instance;
-    private Unit unit;
+    [SerializeField] private Unit unit;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioPitcherSO firingPitcher;
@@ -48,8 +48,9 @@ public class ProjectileSpawner : MonoBehaviour
 
     void Start()
     {
-        unit = GetComponentInParent<Unit>();
         source = GetComponent<AudioSource>();
+
+        unit = transform.parent.parent.GetComponent<Unit>();
 
         SpawnProjectiles(100, 0.3f, projectileStats);
 
@@ -61,7 +62,11 @@ public class ProjectileSpawner : MonoBehaviour
     
     private void Update()
     {
-        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) return;
+        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched)
+        {
+            targetEnemy = null;
+            return;
+        }
 
         if (isAutoAimEnabled)
         {
