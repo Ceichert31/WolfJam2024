@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] float gameTime;
+    [SerializeField] public float gameTime;
     [SerializeField] float currentCurrency;
     Transform enemyContainer;
     [System.Serializable]
