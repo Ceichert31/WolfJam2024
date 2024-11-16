@@ -67,6 +67,7 @@ public class UnitManager : MonoBehaviour
 
         if (_isPlayerShip)
         {
+            Debug.Log("I JHUST DIED AND IM THE LPAYER");
             GameManager.Instance.UpdateGameState(GameManager.EGameState.Lose);
         }
         else
