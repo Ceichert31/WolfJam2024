@@ -24,6 +24,13 @@ public class ProjectileSpawner : MonoBehaviour
     private GameObject targetEnemy;
     private Collider2D[] enemies;
 
+    //Clamping
+    private float localClampMin;
+    private float localClampMax;
+    private float angle;
+
+    private Vector3 originalEuler;
+
     [Header("Flamethrower Settings")]
     [SerializeField] private bool canRotate;
     [SerializeField] private float minRotationZ;
@@ -34,13 +41,14 @@ public class ProjectileSpawner : MonoBehaviour
     private bool reverseDirection;
     private Coroutine instance;
 
-    private float localClampMin;
-    private float localClampMax;
-    private float angle;
-
     void Start()
     {
         SpawnProjectiles(100, 0.3f, projectileStats);
+
+        originalEuler = transform.eulerAngles;
+
+        localClampMin = transform.eulerAngles.z + minRotationZ;
+        localClampMax = transform.eulerAngles.z + maxRotationZ;
     }
     
     private void Update()
@@ -63,9 +71,6 @@ public class ProjectileSpawner : MonoBehaviour
                 }
             }
 
-            localClampMin = transform.eulerAngles.z + minRotationZ;
-            localClampMax = transform.eulerAngles.z + maxRotationZ;
-
             //Rotate
             if (targetEnemy != null)
             {
@@ -75,12 +80,16 @@ public class ProjectileSpawner : MonoBehaviour
 
                 angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
                 angle = Mathf.Clamp(angle, localClampMin, localClampMax);
-                Debug.Log(angle);
                 Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 1000 * Time.deltaTime);
             }
         }
-
+        else
+        {
+            //Reset rotation
+            /*Quaternion targetRotation = Quaternion.Euler(0, 0, originalEuler.z);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 1000 * Time.deltaTime);*/
+        }
 
         //instance = StartCoroutine(RotateTo(transform.eulerAngles, new(transform.eulerAngles.x, transform.eulerAngles.y, angle)));
         //angle = Mathf.Clamp(angle, minRotationZ, maxRotationZ);
@@ -134,6 +143,7 @@ public class ProjectileSpawner : MonoBehaviour
             //Set Stats
             stats.Direction = transform.right;
             stats.EnemyLayer = Mathf.RoundToInt(Mathf.Log(enemyLayer.value, 2));
+            stats.ParentObject = transform.parent.gameObject;
 
             //Set Projectile speed
             instance.SetStats(stats);
@@ -150,12 +160,14 @@ public struct ProjectileStats
     public float LifeTime;
     [HideInInspector] public Vector2 Direction;
     public int EnemyLayer;
+    public GameObject ParentObject;
 
-    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer)
+    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer, GameObject parentObject)
     {
         Speed = speed;
         LifeTime = lifeTime;
         Direction = direction;
         EnemyLayer = enemyLayer;
+        ParentObject = parentObject;
     }
 }

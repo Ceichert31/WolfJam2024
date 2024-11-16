@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private List<int> destroyMask;
 
+    [SerializeField] private List<int> damageMask;
+
     private Rigidbody2D rb;
 
     private ProjectileStats stats;
@@ -27,6 +29,7 @@ public class Projectile : MonoBehaviour
 
         //Add enemy layer as destructable layer
         destroyMask.Add(stats.EnemyLayer);
+        damageMask.Add(stats.EnemyLayer);
     }
 
     /// <summary>
@@ -50,9 +53,16 @@ public class Projectile : MonoBehaviour
         if (waitTime <= Time.time)
             DestroyProjectile();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject == stats.ParentObject) return;
+
+        if (damageMask.Contains(collision.gameObject.layer))
+        {
+            //Deal damage
+            DestroyProjectile();
+        }
+
         if (destroyMask.Contains(collision.gameObject.layer))
         {
             DestroyProjectile();
