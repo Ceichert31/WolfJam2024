@@ -192,6 +192,7 @@ MonoBehaviour:
   _tilemap: {fileID: 7964593625330783432}
   _unitHolders: {fileID: 1093046971919621078}
   _isPlayerShip: 0
+  deathPitcher: {fileID: 11400000, guid: c72d1c283eb9e374c8bc0b9b17789159, type: 2}
 --- !u!50 &4459336942597415854
 Rigidbody2D:
   serializedVersion: 5

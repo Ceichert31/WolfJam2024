@@ -32,8 +32,11 @@ public abstract class Unit : MonoBehaviour
             Destroy(_rigidbody);
         }
 
-        gameObject.layer = LayerMask.NameToLayer("Default");
+
         this.myUnitManager = myUnitManager;
+
+        if (MyUnitManager.IsPlayerShip) gameObject.layer = LayerMask.NameToLayer("Player");
+        else gameObject.layer = LayerMask.NameToLayer("Enemy");
 
         shipUnitState = ShipUnitState.Attached;
         _myCollider.enabled = true;

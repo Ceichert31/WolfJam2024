@@ -59,12 +59,11 @@ public class Projectile : MonoBehaviour
 
         if (damageMask.Contains(collision.gameObject.layer))
         {
-            DestroyProjectile();
+            collision.GetComponent<Unit>().MyUnitManager.MyHealth.TakeDamage(stats.Damage);
         }
 
         if (destroyMask.Contains(collision.gameObject.layer))
         {
-            collision.GetComponent<Unit>().MyUnitManager.MyHealth.TakeDamage(stats.Damage); 
 
             DestroyProjectile();
         }

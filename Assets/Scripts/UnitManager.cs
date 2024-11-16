@@ -36,6 +36,7 @@ public class UnitManager : MonoBehaviour
     public List<Unit> Units { get { return _units; } }
     public Grid MyGrid { get { return _myGrid; } }
     public Health MyHealth { get { return _myHealth; } }
+    public bool IsPlayerShip { get { return _isPlayerShip; } }
 
     private void Start()
     {

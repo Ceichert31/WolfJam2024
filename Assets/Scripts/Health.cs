@@ -51,10 +51,14 @@ public class Health : MonoBehaviour
         int oldHealth = currentHealth;
         currentHealth -= healthAmount;
 
-        Debug.Log("old " + oldHealth + " new " + currentHealth);
+        EffectManager.instance.CameraShake(0.1f, 0.1f, 6);
 
         // dead
-        if (currentHealth <= 0) OnDeath?.Invoke();
+        if (currentHealth <= 0)
+        {
+            OnDeath?.Invoke();
+            EffectManager.instance.CameraShake(0.3f, 0.6f, 9);
+        }
 
         // take damage normally
         else OnHealthUpdate?.Invoke(oldHealth, currentHealth);
