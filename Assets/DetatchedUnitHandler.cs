@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class DetatchedUnitHandler : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _cursorPrefab;
+    private UnitCursor _cursorPrefab;
 
 
     private void Start()
@@ -27,7 +27,9 @@ public class DetatchedUnitHandler : MonoBehaviour
         // instantiate cursors
         foreach(Unit unit in units)
         {
-            Instantiate(_cursorPrefab, unit.transform.position, Quaternion.identity);
+            Instantiate(_cursorPrefab.gameObject, unit.transform.position, Quaternion.identity);
+
+            _cursorPrefab.SetUnit(unit);
         }
     }
 
