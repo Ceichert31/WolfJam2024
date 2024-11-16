@@ -26,6 +26,10 @@ public class UnitManager : MonoBehaviour
 
     private Health _myHealth;
 
+    [Header("Audio References")]
+    private AudioSource _audioSource;
+    [SerializeField] private AudioPitcherSO deathPitcher;
+
     // Getters
     public Transform DetachedGridHolder { get { return _testDetachedUnitHolder; } }
     private List<Unit> _units = new List<Unit>();
@@ -68,6 +72,10 @@ public class UnitManager : MonoBehaviour
         if (_isPlayerShip)
         {
             Debug.Log("I JHUST DIED AND IM THE LPAYER");
+
+            //Play death audio
+            deathPitcher.Play(_audioSource);
+
             GameManager.Instance.UpdateGameState(GameManager.EGameState.Lose);
         }
         else
@@ -80,6 +88,9 @@ public class UnitManager : MonoBehaviour
                 RemoveUnit(_units[0]);
 
                 u.ExplodeFromPoint(GetShipCenterPoint());
+
+                //Play death audio
+                deathPitcher.Play(_audioSource);
             }
         }
     }

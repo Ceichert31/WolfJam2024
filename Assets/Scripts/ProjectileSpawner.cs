@@ -41,8 +41,15 @@ public class ProjectileSpawner : MonoBehaviour
     private bool reverseDirection;
     private Coroutine instance;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioPitcherSO firingPitcher;
+
+    private AudioSource source;
+
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
         SpawnProjectiles(100, 0.3f, projectileStats);
 
         originalDirection = transform.right;
@@ -140,6 +147,8 @@ public class ProjectileSpawner : MonoBehaviour
         {
             //Create projectile instance
             Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Projectile>();
+
+            firingPitcher.Play(source);
 
             //Set Stats
             stats.Direction = transform.right;

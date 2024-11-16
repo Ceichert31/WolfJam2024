@@ -850,7 +850,6 @@ MonoBehaviour:
   _cursorPrefab: {fileID: 4066438727440349848, guid: be4c88dc6ef5a43418c4eb1cc010410b, type: 3}
   selectedUnit: {fileID: 0}
   _attachPitcher: {fileID: 11400000, guid: d41337d4d866e264ca64e4eb11186af3, type: 2}
-  _detachPitcher: {fileID: 11400000, guid: c72d1c283eb9e374c8bc0b9b17789159, type: 2}
 --- !u!1 &1478676136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1555,7 @@ MonoBehaviour:
   _maxHealth: 50
   _startingHealth: 50
   _canTakeDamage: 1
+  currentHealth: 0
 --- !u!1839735485 &2138327754
 Tilemap:
   m_ObjectHideFlags: 0
@@ -1654,6 +1654,7 @@ MonoBehaviour:
   _tilemap: {fileID: 1173696407}
   _unitHolders: {fileID: 1173696405}
   _isPlayerShip: 1
+  deathPitcher: {fileID: 11400000, guid: c72d1c283eb9e374c8bc0b9b17789159, type: 2}
 --- !u!156049354 &2138327758
 Grid:
   m_ObjectHideFlags: 0
