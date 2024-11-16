@@ -40,6 +40,11 @@ public class DetatchedUnitHandler : MonoBehaviour
 
     private void GameStateUpdated(GameManager.EGameState gameState)
     {
+        if(gameState == GameManager.EGameState.Lose)
+        {
+            return;
+        }
+
         if (gameState != GameManager.EGameState.Building)
         {
             Cleanup();
