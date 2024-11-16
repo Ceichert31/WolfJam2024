@@ -29,7 +29,7 @@ public class ProjectileSpawner : MonoBehaviour
     private float localClampMax;
     private float angle;
 
-    private Vector3 originalEuler;
+    private Vector2 originalDirection;
 
     [Header("Flamethrower Settings")]
     [SerializeField] private bool canRotate;
@@ -45,7 +45,7 @@ public class ProjectileSpawner : MonoBehaviour
     {
         SpawnProjectiles(100, 0.3f, projectileStats);
 
-        originalEuler = transform.eulerAngles;
+        originalDirection = transform.right;
 
         localClampMin = transform.eulerAngles.z + minRotationZ;
         localClampMax = transform.eulerAngles.z + maxRotationZ;
@@ -78,17 +78,18 @@ public class ProjectileSpawner : MonoBehaviour
                 //Debug
                 Debug.DrawRay(transform.position, targetDirection * 3f, Color.yellow);
 
-                angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
-                angle = Mathf.Clamp(angle, localClampMin, localClampMax);
-                Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 1000 * Time.deltaTime);
+                /*float angle = Vector2.Dot(targetDirection, transform.right);
+
+                Debug.Log(angle);
+*/
+                if (angle < -0.6 || angle > 0.6)
+                    gameObject.transform.right = targetDirection;
             }
         }
         else
         {
             //Reset rotation
-            /*Quaternion targetRotation = Quaternion.Euler(0, 0, originalEuler.z);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 1000 * Time.deltaTime);*/
+            gameObject.transform.right = originalDirection;
         }
 
         //instance = StartCoroutine(RotateTo(transform.eulerAngles, new(transform.eulerAngles.x, transform.eulerAngles.y, angle)));
