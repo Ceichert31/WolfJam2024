@@ -17,6 +17,7 @@ public class UnitManager : MonoBehaviour
     [SerializeField]
     private Transform _testDetachedUnitHolder;
 
+    // Getters
     public Transform DetachedGridHolder { get { return _testDetachedUnitHolder; } }
     private List<Unit> _units = new List<Unit>();
     public List<Unit> Units { get { return _units; } }
@@ -37,8 +38,6 @@ public class UnitManager : MonoBehaviour
 
         // test
         List<Unit> units = _units[0].GetUnitNeighbors();
-
-        RemoveUnit(_units[0]);
     }
 
     public void AddUnit()
