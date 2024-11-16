@@ -17,6 +17,8 @@ public class Health : MonoBehaviour
     // getters
     public int CurrentHealth { get { return currentHealth; } }
 
+    public int MaxHealth { get { return _maxHealth; } }
+
     public delegate void HealthUpdate(int oldHealth, int newHealth);
     public HealthUpdate OnHealthUpdate;
 
