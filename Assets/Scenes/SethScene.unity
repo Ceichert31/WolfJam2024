@@ -889,6 +889,7 @@ MonoBehaviour:
   _connectionsText: {fileID: 1135841187}
   _pressAnyKeyText: {fileID: 323636949}
   _laughTrack: {fileID: 8300000, guid: fcba192b6f65d4ae1b1398a662deb32d, type: 3}
+  _appearTrack: {fileID: 8300000, guid: 7585edd49a90b4f30a9736700fceaa52, type: 3}
   _source: {fileID: 610543801}
 --- !u!82 &610543801
 AudioSource:
