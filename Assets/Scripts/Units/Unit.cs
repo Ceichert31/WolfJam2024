@@ -25,6 +25,7 @@ public abstract class Unit : MonoBehaviour
 
     public ShipUnitState MyShipUnitState { get { return shipUnitState; } }
     public UnitManager MyUnitManager { get { return myUnitManager; } }
+    public bool IsPlayerShip { get { return myUnitManager.IsPlayerShip; } }
 
     public virtual void Setup(UnitManager myUnitManager)
     {
@@ -33,8 +34,6 @@ public abstract class Unit : MonoBehaviour
             Debug.Log("destroying rb");
             Destroy(_rigidbody);
         }
-
-        _projectileSpawner = GetComponentInChildren<ProjectileSpawner>();
 
         this.myUnitManager = myUnitManager;
 
@@ -131,10 +130,5 @@ public abstract class Unit : MonoBehaviour
     public void OnMouseUp()
     {
         DetatchedUnitHandler.instance.SetSelectedUnit(null);
-    }
-
-    public void SetTargetEnemyLayer(LayerMask layer)
-    {
-        _projectileSpawner.SetTurretEnemyLayer(layer);
     }
 }

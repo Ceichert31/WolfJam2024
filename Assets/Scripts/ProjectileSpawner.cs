@@ -67,6 +67,9 @@ public class ProjectileSpawner : MonoBehaviour
     
     private void Update()
     {
+        if (unit.IsPlayerShip)
+            enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
+
         if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) 
         {
             StopAllCoroutines();
@@ -88,7 +91,6 @@ public class ProjectileSpawner : MonoBehaviour
                     if (instanceUnit.MyShipUnitState == Unit.ShipUnitState.Detatched && targetEnemy == enemy.gameObject)
                     {
                         targetEnemy = null;
-                        Debug.Log("Enemy Untargeted!");
                     }
 
                     if (instanceUnit.MyShipUnitState == Unit.ShipUnitState.Detatched) return;
@@ -104,7 +106,9 @@ public class ProjectileSpawner : MonoBehaviour
             }
             else
             {
-                StopCoroutine(instance);
+                StopAllCoroutines();
+                //Reset rotation
+                gameObject.transform.right = originalDirection;
             }
 
             //Rotate
@@ -113,11 +117,6 @@ public class ProjectileSpawner : MonoBehaviour
                 targetDirection = (targetEnemy.transform.position - transform.position).normalized;
                 //Debug
                 Debug.DrawRay(transform.position, targetDirection * 3f, Color.yellow);
-
-                /*float angle = Vector2.Dot(targetDirection, transform.right);
-
-                Debug.Log(angle);
-*/
                 gameObject.transform.right = targetDirection;
             }
 
@@ -131,19 +130,6 @@ public class ProjectileSpawner : MonoBehaviour
             //Reset rotation
             gameObject.transform.right = originalDirection;
         }
-
-        //instance = StartCoroutine(RotateTo(transform.eulerAngles, new(transform.eulerAngles.x, transform.eulerAngles.y, angle)));
-        //angle = Mathf.Clamp(angle, minRotationZ, maxRotationZ);
-
-        //Flamethrower functionallity
-        /* if (!canRotate) return;
-         * 
-         * if (instance != null) return;
-
-         if (!reverseDirection)
-             instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ)));
-         else
-             instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ)));*/
     }
     /// <summary>
     /// Spawns a certain number of projectiles at certain intervals
@@ -170,7 +156,7 @@ public class ProjectileSpawner : MonoBehaviour
             //Set Stats
             stats.Direction = transform.right;
             stats.EnemyLayer = Mathf.RoundToInt(Mathf.Log(enemyLayer.value, 2));
-            stats.ParentObject = transform.parent.parent.gameObject;
+            stats.ParentObject = transform.parent.parent.parent.gameObject;
 
             //Set Projectile speed
             instance.SetStats(stats);
@@ -178,11 +164,6 @@ public class ProjectileSpawner : MonoBehaviour
         }
         yield return null;
         instance = null;
-    }
-
-    public void SetTurretEnemyLayer(LayerMask layer)
-    {
-        enemyLayer = layer;
     }
 
     /*IEnumerator RotateTo(Vector3 startEuler, Vector3 targetEuler)
@@ -200,7 +181,18 @@ public class ProjectileSpawner : MonoBehaviour
         reverseDirection = !reverseDirection;
     }*/
 
+    //instance = StartCoroutine(RotateTo(transform.eulerAngles, new(transform.eulerAngles.x, transform.eulerAngles.y, angle)));
+    //angle = Mathf.Clamp(angle, minRotationZ, maxRotationZ);
 
+    //Flamethrower functionallity
+    /* if (!canRotate) return;
+     * 
+     * if (instance != null) return;
+
+     if (!reverseDirection)
+         instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ)));
+     else
+         instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ)));*/
 }
 
 [System.Serializable]

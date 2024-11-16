@@ -21,9 +21,6 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        //Calculate target direction
-        //targetDirection = (playerPosition - (Vector2)transform.position).normalized;
-
         //Set lifetime duration
         waitTime = Time.time + stats.LifeTime;
 
@@ -57,9 +54,6 @@ public class Projectile : MonoBehaviour
         //Set velocity
         rb.linearVelocity = stats.Direction * stats.Speed;
 
-        //Set spread
-        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + spread));
-
         //Destroy projectile once lifetime is over
         if (waitTime <= Time.time)
             DestroyProjectile();
@@ -75,7 +69,6 @@ public class Projectile : MonoBehaviour
 
         if (destroyMask.Contains(collision.gameObject.layer))
         {
-
             DestroyProjectile();
         }
     }
