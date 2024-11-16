@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3426965671351284906, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9cae9da0a88a1fc409631b348e8712de, type: 2}
     - target: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
       propertyPath: m_Name
       value: PeashooterUnit
