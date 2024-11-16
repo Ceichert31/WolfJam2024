@@ -47,17 +47,38 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy(GameObject enemy)
     {
-        float ScreenSize = Camera.main.orthographicSize;
+        Camera cam = Camera.main;
+        float height = cam.orthographicSize;
+        float width = height * cam.aspect;
+
         Vector2 spawnSide = Vector2.zero;
+        float spawnOffset =0;
         switch (Random.Range(0, 4))
         {
-            case 0: spawnSide = Vector2.up; break;
-            case 1: spawnSide = Vector2.down; break;
-            case 2: spawnSide = Vector2.left; break;
-            case 3: spawnSide = Vector2.right; break;
+            case 0: 
+                spawnSide = Vector2.up;
+                spawnSide *= height + 1;
+                spawnOffset = Random.Range(-width, width);
+                break;
+            case 1: 
+                spawnSide = Vector2.down;
+                spawnSide *= height + 1;
+                spawnOffset = Random.Range(-width, width);
+
+                break;
+            case 2: 
+                spawnSide = Vector2.left;
+                spawnSide *= width + 1;
+                spawnOffset = Random.Range(-height, height);
+
+                break;
+            case 3: 
+                spawnSide = Vector2.right;
+                spawnSide *= width + 1;
+                spawnOffset = Random.Range(-height, height);
+
+                break;
         }
-        spawnSide *= ScreenSize + 1;
-        float spawnOffset = Random.Range(-ScreenSize, ScreenSize);
 
         Vector2 spawnPos = Vector2.zero;
         if (spawnSide.x == 0)
