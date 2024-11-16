@@ -100,7 +100,7 @@ public abstract class Unit : MonoBehaviour
         _rigidbody.freezeRotation = true;
         _rigidbody.linearDamping = 0.5f;
 
-        gameObject.layer = LayerMask.NameToLayer("Default");
+        //gameObject.layer = LayerMask.NameToLayer("Default");
 
         //Vector2 dir = Random.insideUnitCircle;
         //dir.Normalize();

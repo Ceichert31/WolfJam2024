@@ -52,21 +52,24 @@ public class ProjectileSpawner : MonoBehaviour
 
         unit = transform.parent.parent.GetComponent<Unit>();
 
+        //Set target enemy layer based on current layer
+        if (unit.gameObject.layer == 3)
+            enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
+        if (unit.gameObject.layer == 7)
+            enemyLayer = 1 << LayerMask.NameToLayer("Player");
+
         SpawnProjectiles(100, 0.3f, projectileStats);
 
         originalDirection = transform.right;
 
+        //Local clamp
         localClampMin = transform.eulerAngles.z + minRotationZ;
         localClampMax = transform.eulerAngles.z + maxRotationZ;
     }
     
     private void Update()
     {
-        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched)
-        {
-            targetEnemy = null;
-            return;
-        }
+        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) return;
 
         if (isAutoAimEnabled)
         {
@@ -77,7 +80,18 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 foreach (Collider2D enemy in enemies)
                 {
-                    Debug.Log(enemy);
+                    Unit instanceUnit = enemy.GetComponent<Unit>();
+
+                    //If unit is detached and target untarget
+                    if (instanceUnit.MyShipUnitState == Unit.ShipUnitState.Detatched && targetEnemy == enemy.gameObject)
+                    {
+                        targetEnemy = null;
+                        Debug.Log("Enemy Untargeted!");
+                    }
+
+                    if (instanceUnit.MyShipUnitState == Unit.ShipUnitState.Detatched) return;
+                        
+                    
                     float distance = Vector2.Distance(enemy.transform.position, transform.position);
                     if (distance < closestEnemy)
                     {
@@ -161,7 +175,7 @@ public class ProjectileSpawner : MonoBehaviour
             //Set Stats
             stats.Direction = transform.right;
             stats.EnemyLayer = Mathf.RoundToInt(Mathf.Log(enemyLayer.value, 2));
-            stats.ParentObject = transform.parent.gameObject;
+            stats.ParentObject = transform.parent.parent.gameObject;
 
             //Set Projectile speed
             instance.SetStats(stats);
