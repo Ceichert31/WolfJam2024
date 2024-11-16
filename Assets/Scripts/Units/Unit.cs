@@ -22,7 +22,11 @@ public abstract class Unit : MonoBehaviour
 
     public virtual void Setup(UnitManager myUnitManager)
     {
-        if (_rigidbody != null) Destroy(_rigidbody);
+        if (_rigidbody != null)
+        {
+            Debug.Log("destroying rb");
+            Destroy(_rigidbody);
+        }
 
         this.myUnitManager = myUnitManager;
 

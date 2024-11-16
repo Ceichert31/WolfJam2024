@@ -74,16 +74,20 @@ public class DetatchedUnitHandler : MonoBehaviour
             Destroy(cursor);
         }
 
-        if(selectedUnit != null)
+        List<Unit> units = GetAllUnits();
+
+        UnitManager unitManager = GameManager.Instance.Player.GetComponent<UnitManager>();
+
+        foreach (Unit u in units)
         {
-            UnitManager unitManager = GameManager.Instance.Player.GetComponent<UnitManager>();
-
-            if (unitManager.CanAddUnit(selectedUnit.transform.position, selectedUnit)){
-                unitManager.AddUnit(selectedUnit);
+            if (unitManager.CanAddUnit(u.transform.position, u))
+            {
+                Debug.Log("we added this unit bru");
+                unitManager.AddUnit(u);
             }
-
-            selectedUnit = null;
         }
+
+        selectedUnit = null;
     }
 
     private void Update()
