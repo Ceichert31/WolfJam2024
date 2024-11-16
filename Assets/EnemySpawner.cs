@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] public float gameTime;
     [SerializeField] float currentCurrency;
     Transform enemyContainer;
+    Transform player;
     [System.Serializable]
     struct EnemyTier
     {
@@ -19,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         enemyContainer = GameObject.Find("EnemyContainer").transform;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -83,11 +85,11 @@ public class EnemySpawner : MonoBehaviour
         Vector2 spawnPos = Vector2.zero;
         if (spawnSide.x == 0)
         {
-            spawnPos = new Vector2(spawnOffset, spawnSide.y);
+            spawnPos = new Vector2(spawnOffset, spawnSide.y) + new Vector2(player.position.x, player.position.y);
         }
         if (spawnSide.y == 0)
         {
-            spawnPos = new Vector2(spawnSide.x, spawnOffset);
+            spawnPos = new Vector2(spawnSide.x, spawnOffset) + new Vector2(player.position.x, player.position.y);
         }
         Instantiate(enemy, spawnPos, Quaternion.identity, enemyContainer);
     }
