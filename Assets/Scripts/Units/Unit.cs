@@ -11,6 +11,8 @@ public abstract class Unit : MonoBehaviour
     }
 
     [SerializeField]
+    private Collider2D _myCollider;
+
     private Rigidbody2D _rigidbody;
 
     [HideInInspector] protected UnitManager myUnitManager;
@@ -25,6 +27,7 @@ public abstract class Unit : MonoBehaviour
         this.myUnitManager = myUnitManager;
 
         shipUnitState = ShipUnitState.Attached;
+        _myCollider.enabled = true;
     }
 
     public List<Unit> GetUnitNeighbors()
@@ -51,12 +54,23 @@ public abstract class Unit : MonoBehaviour
         return units;
     }
 
-    /// <summary>
-    /// occurs upon death
-    /// </summary>
+    private void Update()
+    {
+        if (GameManager.Instance.GameState == GameManager.EGameState.Playing)
+        {
+            _myCollider.enabled = true;
+        }
+        else if(shipUnitState != ShipUnitState.Detatched)
+        {
+            _myCollider.enabled = false;
+        }
+    }
+
     public void DetatchUnit()
     {
         myUnitManager.RemoveUnit(this);
+
+        _myCollider.enabled = false;
     }
 
     public virtual void UpdateUnit() { }

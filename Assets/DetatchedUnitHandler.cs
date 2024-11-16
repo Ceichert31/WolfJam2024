@@ -86,7 +86,9 @@ public class DetatchedUnitHandler : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0.0f;
 
-        selectedUnit.transform.position = mousePos;
+        Vector3Int closestPoint = GameManager.Instance.Player.GetComponent<Grid>().WorldToCell(mousePos);
+
+        selectedUnit.transform.position = closestPoint;
     }
 
     private List<Unit> GetAllUnits()
