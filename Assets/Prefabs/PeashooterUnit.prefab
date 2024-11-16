@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 1317867485787819332}
   - component: {fileID: 3171526062204323099}
   - component: {fileID: 5781143360030152679}
-  - component: {fileID: 7558547028217731281}
   m_Layer: 0
   m_Name: PeashooterUnit
   m_TagString: Untagged
@@ -128,21 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myCollider: {fileID: 3171526062204323099}
   _detatchementForce: 1
---- !u!114 &7558547028217731281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3896992132034705217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f895d508ac1a43cda999fdfa120e500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 50
-  _startingHealth: 50
-  _canTakeDamage: 1
 --- !u!1 &5108054527359911985
 GameObject:
   m_ObjectHideFlags: 0

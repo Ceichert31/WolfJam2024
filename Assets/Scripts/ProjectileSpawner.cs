@@ -162,13 +162,15 @@ public struct ProjectileStats
     [HideInInspector] public Vector2 Direction;
     public int EnemyLayer;
     public GameObject ParentObject;
+    public int Damage;
 
-    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer, GameObject parentObject)
+    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer, GameObject parentObject, int damage)
     {
         Speed = speed;
         LifeTime = lifeTime;
         Direction = direction;
         EnemyLayer = enemyLayer;
         ParentObject = parentObject;
+        Damage = damage;
     }
 }

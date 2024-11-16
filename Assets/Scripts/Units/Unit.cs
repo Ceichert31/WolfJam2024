@@ -22,6 +22,7 @@ public abstract class Unit : MonoBehaviour
     [HideInInspector] protected ShipUnitState shipUnitState;
 
     public ShipUnitState MyShipUnitState { get { return shipUnitState; } }
+    public UnitManager MyUnitManager { get { return myUnitManager; } }
 
     public virtual void Setup(UnitManager myUnitManager)
     {

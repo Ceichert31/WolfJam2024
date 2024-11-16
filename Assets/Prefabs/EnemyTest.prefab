@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1093046971919621078}
   - component: {fileID: 7964593625330783432}
   - component: {fileID: 8003956311445368452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,8 @@ GameObject:
   - component: {fileID: 4459336942597415854}
   - component: {fileID: 7602896383861637372}
   - component: {fileID: 1737511514795571194}
-  m_Layer: 0
+  - component: {fileID: 7439610950553095256}
+  m_Layer: 7
   m_Name: EnemyTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +191,7 @@ MonoBehaviour:
   _myGrid: {fileID: 6395105185116160594}
   _tilemap: {fileID: 7964593625330783432}
   _unitHolders: {fileID: 1093046971919621078}
-  _testDetachedUnitHolder: {fileID: 0}
+  _isPlayerShip: 0
 --- !u!50 &4459336942597415854
 Rigidbody2D:
   serializedVersion: 5
@@ -272,6 +273,21 @@ MonoBehaviour:
   acceleration: 0.4
   stopDistance: 0
   body: {fileID: 4459336942597415854}
+--- !u!114 &7439610950553095256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7720205383097848686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f895d508ac1a43cda999fdfa120e500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 50
+  _startingHealth: 50
+  _canTakeDamage: 1
 --- !u!1001 &295609843501962719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -320,9 +336,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2983326100677720387, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
       propertyPath: m_Name
       value: PeashooterUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108054527359911985, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344830142620901227, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -382,9 +414,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2983326100677720387, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
       propertyPath: m_Name
       value: PeashooterUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108054527359911985, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344830142620901227, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -444,9 +492,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2983326100677720387, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
       propertyPath: m_Name
       value: PeashooterUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108054527359911985, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344830142620901227, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

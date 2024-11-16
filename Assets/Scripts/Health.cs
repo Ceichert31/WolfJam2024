@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField]
     private bool _canTakeDamage = true;
 
+    [SerializeField]
     private int currentHealth;
 
     // getters
@@ -45,9 +46,12 @@ public class Health : MonoBehaviour
     public bool TakeDamage(int healthAmount)
     {
         if (!_canTakeDamage) return false;
+        Debug.Log(healthAmount);
 
         int oldHealth = currentHealth;
         currentHealth -= healthAmount;
+
+        Debug.Log("old " + oldHealth + " new " + currentHealth);
 
         // dead
         if (currentHealth <= 0) OnDeath?.Invoke();
