@@ -6,7 +6,7 @@ public abstract class Unit : MonoBehaviour
 {
     [HideInInspector] protected UnitManager myUnitManager;
 
-    public void Setup(UnitManager myUnitManager)
+    public virtual void Setup(UnitManager myUnitManager)
     {
         this.myUnitManager = myUnitManager;
     }
@@ -35,8 +35,7 @@ public abstract class Unit : MonoBehaviour
         return units;
     }
 
-    public virtual void UpdateUnit()
-    {
+    public virtual void UpdateUnit() { }
 
-    }
+    public virtual void HandleRemoval() { }
 }

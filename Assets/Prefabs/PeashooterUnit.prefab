@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myHealth: {fileID: 7558547028217731281}
+  _rigidbody: {fileID: 0}
 --- !u!114 &7558547028217731281
 MonoBehaviour:
   m_ObjectHideFlags: 0

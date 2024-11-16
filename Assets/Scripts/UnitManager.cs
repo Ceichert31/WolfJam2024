@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 
 public class UnitManager : MonoBehaviour
 {
@@ -8,10 +9,18 @@ public class UnitManager : MonoBehaviour
     private Grid _myGrid;
 
     [SerializeField]
+    private Tilemap _tilemap;
+
+    [SerializeField]
     private Transform _unitHolders;
 
+    [SerializeField]
+    private Transform _testDetachedUnitHolder;
+
+    public Transform DetachedGridHolder { get { return _testDetachedUnitHolder; } }
     private List<Unit> _units = new List<Unit>();
     public List<Unit> Units { get { return _units; } }
+    public Grid MyGrid { get { return _myGrid; } }
 
     private void Start()
     {
@@ -28,6 +37,8 @@ public class UnitManager : MonoBehaviour
 
         // test
         List<Unit> units = _units[0].GetUnitNeighbors();
+
+        RemoveUnit(_units[0]);
     }
 
     public void AddUnit()
@@ -47,7 +58,13 @@ public class UnitManager : MonoBehaviour
     {
         if (!_units.Contains(unit)) return;
 
+        _tilemap.SetTile(_myGrid.WorldToCell(unit.transform.position), null);
         _units.Remove(unit);
+
+        unit.transform.parent = _testDetachedUnitHolder;
+        unit.HandleRemoval();
+
+        Debug.Log("Unit at " + transform.position + " has been removed!");
     }
 
     public bool TryGetUnitAtPosition(Vector2 worldPos, out Unit unit)
