@@ -7,6 +7,7 @@ public class DetatchedUnitHandler : MonoBehaviour
     [SerializeField]
     private GameObject _cursorPrefab;
 
+
     private void Start()
     {
         GameManager.Instance.OnGameStateChanged += GameStateUpdated;
@@ -14,7 +15,12 @@ public class DetatchedUnitHandler : MonoBehaviour
 
     private void GameStateUpdated(GameManager.EGameState gameState)
     {
-        if (gameState != GameManager.EGameState.Building) return;
+        if (gameState != GameManager.EGameState.Building)
+        {
+            Cleanup();
+
+            return;
+        }
 
         List<Unit> units = GetAllUnits();
 
@@ -22,6 +28,19 @@ public class DetatchedUnitHandler : MonoBehaviour
         foreach(Unit unit in units)
         {
             Instantiate(_cursorPrefab, unit.transform.position, Quaternion.identity);
+        }
+    }
+
+    private void Cleanup()
+    {
+        Debug.Log("fuck 1");
+
+        // destroy all cursors
+        foreach (GameObject cursor in GameObject.FindGameObjectsWithTag("Cursor"))
+        {
+
+            Debug.Log("fuck 2");
+            Destroy(cursor);
         }
     }
 
