@@ -347,6 +347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2
       objectReference: {fileID: 0}
+    - target: {fileID: 194137346530961550, guid: 4a1c8562403312240a8f600a49492d46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1057455003135162296, guid: 4a1c8562403312240a8f600a49492d46, type: 3}
       propertyPath: DeathParticle
       value: 
@@ -1545,8 +1549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f895d508ac1a43cda999fdfa120e500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
-  _startingHealth: 50
+  _maxHealth: 100000
+  _startingHealth: 10000
   _canTakeDamage: 1
   currentHealth: 0
   DeathParticle: {fileID: 0}

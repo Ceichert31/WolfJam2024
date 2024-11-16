@@ -107,8 +107,6 @@ public class ProjectileSpawner : MonoBehaviour
                 StopCoroutine(instance);
             }
 
-
-
             //Rotate
             if (targetEnemy != null)
             {
