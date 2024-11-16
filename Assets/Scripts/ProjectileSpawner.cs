@@ -39,7 +39,7 @@ public class ProjectileSpawner : MonoBehaviour
     private float currentRotationTime;
     private bool reverseDirection;
     private Coroutine instance;
-    [SerializeField] private Unit unit;
+    private Unit unit;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioPitcherSO firingPitcher;
@@ -57,8 +57,6 @@ public class ProjectileSpawner : MonoBehaviour
             enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
         if (unit.gameObject.layer == 7)
             enemyLayer = 1 << LayerMask.NameToLayer("Player");
-
-        SpawnProjectiles(100, 0.3f, projectileStats);
 
         originalDirection = transform.right;
 
@@ -104,6 +102,12 @@ public class ProjectileSpawner : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                StopCoroutine(instance);
+            }
+
+
 
             //Rotate
             if (targetEnemy != null)
@@ -118,6 +122,11 @@ public class ProjectileSpawner : MonoBehaviour
 */
                 gameObject.transform.right = targetDirection;
             }
+
+            //Attack
+            if (instance != null) return;
+            SpawnProjectiles(3, 0.3f, projectileStats);
+
         }
         else
         {
@@ -138,31 +147,15 @@ public class ProjectileSpawner : MonoBehaviour
          else
              instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ)));*/
     }
-
-    IEnumerator RotateTo(Vector3 startEuler, Vector3 targetEuler)
-    {
-        float timeElapsed = 0;
-        transform.eulerAngles = startEuler;
-        while (timeElapsed < rotationTime)
-        {
-            timeElapsed += Time.deltaTime;
-            transform.eulerAngles = Vector3.Lerp(startEuler, targetEuler, timeElapsed / rotationTime);
-            yield return null;
-        }
-        transform.eulerAngles = targetEuler;
-        instance = null;
-        reverseDirection = !reverseDirection;
-    }
-
     /// <summary>
     /// Spawns a certain number of projectiles at certain intervals
     /// </summary>
     /// <param name="projectileNum"></param>
     /// <param name="delayBetween"></param>
     /// <param name="projectileSpeed"></param>
-    void SpawnProjectiles(int projectileNum, float delayBetween, ProjectileStats stats)
+    public void SpawnProjectiles(int projectileNum, float delayBetween, ProjectileStats stats)
     {
-        StartCoroutine(SpawnPattern(projectileNum, delayBetween, stats));
+        instance = StartCoroutine(SpawnPattern(projectileNum, delayBetween, stats));
     }
 
     IEnumerator SpawnPattern(int projectileNum, float delayBetween, ProjectileStats stats)
@@ -186,7 +179,30 @@ public class ProjectileSpawner : MonoBehaviour
             yield return waitTime;
         }
         yield return null;
+        instance = null;
     }
+
+    public void SetTurretEnemyLayer(LayerMask layer)
+    {
+        enemyLayer = layer;
+    }
+
+    /*IEnumerator RotateTo(Vector3 startEuler, Vector3 targetEuler)
+    {
+        float timeElapsed = 0;
+        transform.eulerAngles = startEuler;
+        while (timeElapsed < rotationTime)
+        {
+            timeElapsed += Time.deltaTime;
+            transform.eulerAngles = Vector3.Lerp(startEuler, targetEuler, timeElapsed / rotationTime);
+            yield return null;
+        }
+        transform.eulerAngles = targetEuler;
+        instance = null;
+        reverseDirection = !reverseDirection;
+    }*/
+
+
 }
 
 [System.Serializable]
@@ -198,8 +214,10 @@ public struct ProjectileStats
     public int EnemyLayer;
     public GameObject ParentObject;
     public int Damage;
+    public int ProjectileNumber;
+    public float DelayBetween;
 
-    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer, GameObject parentObject, int damage)
+    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer, GameObject parentObject, int damage, int projectileNum, float delayBetween)
     {
         Speed = speed;
         LifeTime = lifeTime;
@@ -207,5 +225,7 @@ public struct ProjectileStats
         EnemyLayer = enemyLayer;
         ParentObject = parentObject;
         Damage = damage;
+        ProjectileNumber = projectileNum;
+        DelayBetween = delayBetween;
     }
 }
