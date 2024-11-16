@@ -81,8 +81,6 @@ public abstract class Unit : MonoBehaviour
     public void DetatchUnit()
     {
         myUnitManager.RemoveUnit(this);
-        gameObject.layer = LayerMask.NameToLayer("Default");
-
         _myCollider.enabled = false;
     }
 
@@ -101,6 +99,8 @@ public abstract class Unit : MonoBehaviour
         _rigidbody.gravityScale = 0;
         _rigidbody.freezeRotation = true;
         _rigidbody.linearDamping = 0.5f;
+
+        gameObject.layer = LayerMask.NameToLayer("Default");
 
         //Vector2 dir = Random.insideUnitCircle;
         //dir.Normalize();
