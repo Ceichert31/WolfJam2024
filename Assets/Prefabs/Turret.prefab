@@ -54,6 +54,8 @@ MonoBehaviour:
     EnemyLayer: 0
     ParentObject: {fileID: 0}
     Damage: 10
+    ProjectileNumber: 3
+    DelayBetween: 0.3
   isAutoAimEnabled: 1
   range: 10
   enemyLayer:
@@ -63,7 +65,6 @@ MonoBehaviour:
   minRotationZ: -60
   maxRotationZ: 60
   rotationTime: 0.1
-  unit: {fileID: 0}
   firingPitcher: {fileID: 11400000, guid: 30726c4af73214a47bf9a8fbaef224a6, type: 2}
 --- !u!82 &4645058140885502142
 AudioSource:

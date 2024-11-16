@@ -341,4 +341,5 @@ MonoBehaviour:
   - {fileID: 9100000, guid: cf5f014b79e1dbe4bad9f98c43c9b3a0, type: 2}
   - {fileID: 9100000, guid: b6dfe8824d638b64e80993d3b058eff4, type: 2}
   - {fileID: 9100000, guid: 5410e9bd98fb3eb448c5cc3c25d09387, type: 2}
+  - {fileID: 9100000, guid: 9cae9da0a88a1fc409631b348e8712de, type: 2}
   animator: {fileID: 3426965671351284906}
