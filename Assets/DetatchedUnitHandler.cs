@@ -114,7 +114,7 @@ public class DetatchedUnitHandler : MonoBehaviour
         if (GameManager.Instance.GameState != GameManager.EGameState.Building) return;
         if (selectedUnit == null)
         {
-            if(lastUnitHeld != null) cursorToUnitPair[lastUnitHeld].HideValidityCheck();
+            if(lastUnitHeld != null && cursorToUnitPair[lastUnitHeld] != null) cursorToUnitPair[lastUnitHeld].HideValidityCheck();
             return;
         }
 
