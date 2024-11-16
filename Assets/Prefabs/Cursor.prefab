@@ -107,6 +107,7 @@ MonoBehaviour:
   _sprites:
   - {fileID: 6554736390298987251, guid: 3a8087802528d4072adfada278ac4014, type: 3}
   - {fileID: -3805890996008307561, guid: 3a8087802528d4072adfada278ac4014, type: 3}
+  _useUnscaledTime: 1
 --- !u!114 &4066438727440349848
 MonoBehaviour:
   m_ObjectHideFlags: 0

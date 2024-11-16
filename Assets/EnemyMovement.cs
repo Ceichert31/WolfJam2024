@@ -17,29 +17,8 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
     }
 
-    private void Start()
-    {
-        GameManager.Instance.OnGameStateChanged += GameStateUpdate;
-    }
-
-    private void GameStateUpdate(GameManager.EGameState gameState)
-    {
-        if(gameState == GameManager.EGameState.Playing) {
-            body.linearVelocity = lastLinearVelocity;
-
-            canMove = true;
-        }
-        else {
-            lastLinearVelocity = body.linearVelocity;
-
-            canMove = false;
-        }
-    }
-
     void FixedUpdate()
     {
-        if (!canMove) return;
-
         Movement();
     }
 

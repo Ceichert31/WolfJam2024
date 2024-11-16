@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf87d37c1bd840fb997704006424049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 2138327759}
 --- !u!4 &2017125029
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,7 +1234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adae89d1cfbd684ca3d2083e6cbe36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 0
   currentCurrency: 0
   enemyTiers:
   - startSpawnTime: 0
@@ -1391,10 +1390,7 @@ MonoBehaviour:
   _myGrid: {fileID: 2138327758}
   _tilemap: {fileID: 1173696407}
   _unitHolders: {fileID: 1173696405}
-  _testDetachedUnitHolder: {fileID: 0}
   _isPlayerShip: 1
-  IsTestingMode: 0
-  IsTestingUnitDeath: 0
 --- !u!156049354 &2138327758
 Grid:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ public class SimpleSpriteAnimator : MonoBehaviour
     [SerializeField]
     private Sprite[] _sprites;
 
+    [SerializeField]
+    private bool _useUnscaledTime = false;
+
     int index;
     float timer;
 
@@ -22,7 +25,7 @@ public class SimpleSpriteAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        timer += _useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
 
         if (timer < _timeBetweenFrames) return;
 

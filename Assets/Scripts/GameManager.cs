@@ -55,10 +55,12 @@ public class GameManager : MonoBehaviour
         {
             if(gameState == EGameState.Playing)
             {
+                Time.timeScale = 0.0f;
                 UpdateGameState(EGameState.Building);
             }
             else if (gameState == EGameState.Building)
             {
+                Time.timeScale = 1.0f;
                 UpdateGameState(EGameState.Playing);
             }
         }
