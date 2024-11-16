@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class ShipUnit : MonoBehaviour
+public abstract class ShipUnit : Unit
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    protected Health _myHealth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Health MyHealth { get { return _myHealth; } }
 }
