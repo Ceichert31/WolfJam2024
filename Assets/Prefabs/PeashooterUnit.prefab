@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myCollider: {fileID: 3171526062204323099}
-  _detatchementForce: 2
+  _detatchementForce: 1
 --- !u!114 &7558547028217731281
 MonoBehaviour:
   m_ObjectHideFlags: 0

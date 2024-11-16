@@ -70,11 +70,14 @@ public class UnitManager : MonoBehaviour
         }
         else
         {
+            Debug.DrawRay(GetShipCenterPoint(), Vector2.up * 5.0f, Color.blue, 5.0f);
             // detatch all
-            while(_units.Count > 0)
+            while (_units.Count > 0)
             {
-                Debug.Log("Detatching...");
+                Unit u = _units[0];
                 RemoveUnit(_units[0]);
+
+                u.ExplodeFromPoint(GetShipCenterPoint());
             }
         }
     }
@@ -204,5 +207,25 @@ public class UnitManager : MonoBehaviour
         }
 
         return extents;
+    }
+
+    public Vector2 GetShipCenterPoint()
+    {
+        Vector2 all = Vector2.zero;
+        int count = 0;
+
+        foreach(Unit unit in _units)
+        {
+            all.x += unit.transform.position.x;
+            all.y += unit.transform.position.y;
+
+            count++;
+        }
+
+        if(count != 0) {
+            all = new Vector2(all.x / count, all.y / count);
+        }
+
+        return all;
     }
 }

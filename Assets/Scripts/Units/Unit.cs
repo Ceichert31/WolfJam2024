@@ -96,10 +96,15 @@ public abstract class Unit : MonoBehaviour
         _rigidbody.gravityScale = 0;
         _rigidbody.freezeRotation = true;
 
-        Vector2 dir = Random.insideUnitCircle;
-        dir.Normalize();
+        //Vector2 dir = Random.insideUnitCircle;
+        //dir.Normalize();
 
-        _rigidbody.AddForce(dir * _detatchementForce, ForceMode2D.Impulse);
+        //_rigidbody.AddForce(dir * _detatchementForce, ForceMode2D.Impulse);
+    }
+
+    public void ExplodeFromPoint(Vector2 point)
+    {
+        _rigidbody.AddForceAtPosition((new Vector2(transform.position.x, transform.position.y) - point).normalized * _detatchementForce, point, ForceMode2D.Impulse);
     }
 
     public void OnMouseEnter()
