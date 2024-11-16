@@ -146,4 +146,27 @@ public class UnitManager : MonoBehaviour
 
         return false;
     }
+
+    public Vector2 GetExtents()
+    {
+        // updated with max values
+        Vector2 extents = new Vector2(0, 0);
+
+        foreach(Unit unit in _units)
+        {
+            // extend based on maximum x
+            if(Mathf.Abs(unit.transform.position.x) > extents.x)
+            {
+                extents.x = Mathf.Abs(unit.transform.position.x);
+            }
+
+            // extend based on maximum y
+            if(Mathf.Abs(unit.transform.position.y) > extents.y)
+            {
+                extents.y = Mathf.Abs(unit.transform.position.y);
+            }
+        }
+
+        return extents;
+    }
 }

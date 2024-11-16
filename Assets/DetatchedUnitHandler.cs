@@ -85,6 +85,10 @@ public class DetatchedUnitHandler : MonoBehaviour
                 Debug.Log("we added this unit bru");
                 unitManager.AddUnit(u);
             }
+            else
+            {
+                Destroy(u.gameObject);
+            }
         }
 
         selectedUnit = null;
