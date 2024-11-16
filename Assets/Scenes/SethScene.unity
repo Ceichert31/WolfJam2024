@@ -1617,13 +1617,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140451346}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1885406192}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2138327759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1642,8 +1642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36f337bc940d4911a915db6e8ee9020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myShip: {fileID: 0}
-  _healthUISlider: {fileID: 0}
+  _health: {fileID: 2138327753}
+  _healthUISlider: {fileID: 1885406193}
   _healthWhiteSlider: {fileID: 0}
 --- !u!1 &1173696404
 GameObject:
@@ -3033,6 +3033,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1140451350}
   - {fileID: 1173696405}
   - {fileID: 54313040}
   - {fileID: 1262104677}
@@ -3051,4 +3052,3 @@ SceneRoots:
   - {fileID: 235220637}
   - {fileID: 2051008701}
   - {fileID: 1752547587}
-  - {fileID: 1140451350}
