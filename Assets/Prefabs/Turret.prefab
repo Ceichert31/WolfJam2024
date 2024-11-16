@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7243970334931976404}
   - component: {fileID: 2670972554748230915}
   - component: {fileID: 5878755941778984472}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -52,12 +52,12 @@ MonoBehaviour:
     Direction: {x: 0, y: 0}
     EnemyLayer: 0
     ParentObject: {fileID: 0}
-    Damage: 0
+    Damage: 10
   isAutoAimEnabled: 1
   range: 10
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   canRotate: 0
   minRotationZ: -60
   maxRotationZ: 60
@@ -72,7 +72,7 @@ AudioSource:
   m_GameObject: {fileID: 2730921503959214515}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0633dec3271306d4cb0b1505cc9570dc, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
