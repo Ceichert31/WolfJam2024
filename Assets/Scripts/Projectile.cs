@@ -1,17 +1,16 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private int destroyMask;
+    [SerializeField] private List<int> destroyMask;
 
     private Rigidbody2D rb;
 
     private ProjectileStats stats;
 
     private float waitTime;
-    private Vector2 playerPosition => GameManager.Instance.Player.position;
 
     Vector2 finalTarget;
 
@@ -51,7 +50,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == destroyMask)
+        if (destroyMask.Contains(collision.gameObject.layer))
         {
             DestroyProjectile();
         }
