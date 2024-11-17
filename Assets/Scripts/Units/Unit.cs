@@ -131,8 +131,8 @@ public abstract class Unit : MonoBehaviour
 
     public void OnMouseUp()
     {
-        DetatchedUnitHandler.instance.SetSelectedUnit(null);
-
         DetatchedUnitHandler.instance.PutDownUnit(this);
+
+        DetatchedUnitHandler.instance.SetSelectedUnit(null);
     }
 }

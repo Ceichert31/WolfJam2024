@@ -19,6 +19,9 @@ public class UnitManager : MonoBehaviour
     private Transform _testDetachedUnitHolder;
 
     [SerializeField]
+    private int _maxHealthIncreasePerUnit = 50;
+
+    [SerializeField]
     private bool _isPlayerShip = false;
 
     //public bool IsTestingMode = false;
@@ -110,6 +113,7 @@ public class UnitManager : MonoBehaviour
 
     public void AddUnit(Unit unit)
     {
+        _myHealth.IncreaseMaxHealth(_maxHealthIncreasePerUnit);
         _units.Add(unit);
         unit.transform.parent = _unitHolders.transform;
         unit.Setup(this);

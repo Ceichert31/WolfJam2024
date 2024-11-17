@@ -2127,6 +2127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1378942031}
   - component: {fileID: 1378942032}
+  - component: {fileID: 1378942033}
   m_Layer: 0
   m_Name: DetachedUnits
   m_TagString: Untagged
@@ -2162,8 +2163,108 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cursorPrefab: {fileID: 4066438727440349848, guid: be4c88dc6ef5a43418c4eb1cc010410b, type: 3}
+  _connectionParticlePrefab: {fileID: 8663421373083832500, guid: 81be60310968b40d490cf21799b9cf26, type: 3}
   selectedUnit: {fileID: 0}
-  _attachPitcher: {fileID: 11400000, guid: d41337d4d866e264ca64e4eb11186af3, type: 2}
+  _attachSound: {fileID: 8300000, guid: db7a766d5e29e5343abc3a5ac052c5e4, type: 3}
+  _moveSound: {fileID: 8300000, guid: 8413eda1e43fa470d91ff6de83f6dada, type: 3}
+  _audioSource: {fileID: 1378942033}
+--- !u!82 &1378942033
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378942030}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1478676136
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,7 +3180,7 @@ GameObject:
   - component: {fileID: 2138327754}
   - component: {fileID: 2138327753}
   m_Layer: 3
-  m_Name: ShipUnitTest
+  m_Name: PlayerShip
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3097,10 +3198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f895d508ac1a43cda999fdfa120e500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
-  _startingHealth: 50
+  _maxHealth: 250
+  _startingHealth: 250
   _canTakeDamage: 1
   currentHealth: 0
+  smokeParticle: {fileID: 0}
   DeathParticle: {fileID: 0}
 --- !u!1839735485 &2138327754
 Tilemap:

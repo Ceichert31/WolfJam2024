@@ -93,6 +93,14 @@ public class Health : MonoBehaviour
         }
 
     }
+
+    public void IncreaseMaxHealth(int increase)
+    {
+        _maxHealth += increase;
+
+        OnHealthUpdate?.Invoke(currentHealth, currentHealth);
+    }
+
     public void RestoreHealth()
     {
         currentHealth = _maxHealth;

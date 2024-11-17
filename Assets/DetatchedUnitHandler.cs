@@ -9,6 +9,9 @@ public class DetatchedUnitHandler : MonoBehaviour
     [SerializeField]
     private UnitCursor _cursorPrefab;
 
+    [SerializeField]
+    private ParticleSystem _connectionParticlePrefab;
+
     private bool canSelectUnits;
 
     public Unit selectedUnit;
@@ -18,8 +21,10 @@ public class DetatchedUnitHandler : MonoBehaviour
     public bool CanSelectUnits { get { return canSelectUnits; } }
 
     [Header("Audio References")]
-    [SerializeField] private AudioPitcherSO _attachPitcher;
-    private AudioSource _audioSource => Camera.main.GetComponent<AudioSource>();
+    [SerializeField] private AudioClip _attachSound;
+    [SerializeField] private AudioClip _moveSound;
+    [SerializeField] private AudioSource _audioSource;
+
 
     private void Awake()
     {
@@ -96,7 +101,7 @@ public class DetatchedUnitHandler : MonoBehaviour
                 GameManager.Instance.AddToConnections();
 
                 //Play sound effect
-                _attachPitcher.Play(_audioSource);
+                _audioSource.PlayOneShot(_attachSound);
                 unitManager.AddUnit(u);
             }
             else
@@ -113,6 +118,8 @@ public class DetatchedUnitHandler : MonoBehaviour
         UpdateSelectedUnitPosition();
     }
 
+    Vector3 lastPos = Vector3.zero;
+
     private void UpdateSelectedUnitPosition()
     {
         if (GameManager.Instance.GameState != GameManager.EGameState.Building) return;
@@ -124,6 +131,13 @@ public class DetatchedUnitHandler : MonoBehaviour
 
         Vector3 point = GetGridPosition();
         selectedUnit.transform.position = point;
+
+        // move sound
+        if(point != lastPos)
+        {
+            _audioSource.PlayOneShot(_moveSound);
+        }
+        lastPos = point;
 
         // show validity on screen
         UnitManager unitManager = GameManager.Instance.Player.GetComponent<UnitManager>();
@@ -172,6 +186,14 @@ public class DetatchedUnitHandler : MonoBehaviour
         {
             spriteHelper.PutDown();
         }
+
+        // cool cloud
+        if(selectedUnit != null && GameManager.Instance.Player.GetComponent<UnitManager>().CanAddUnit(selectedUnit.transform.position, selectedUnit))
+        {
+            Instantiate(_connectionParticlePrefab.gameObject, unit.transform.position, Quaternion.identity);
+        }
+
+
     }
 
     public void PickUpUnit(Unit unit)
