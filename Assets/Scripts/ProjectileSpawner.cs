@@ -42,6 +42,8 @@ public class ProjectileSpawner : MonoBehaviour
     private Coroutine instance;
     [SerializeField] private Unit unit;
 
+    public Vector2 value1, value2;
+
     [Header("Audio Settings")]
     [SerializeField] private AudioPitcherSO firingPitcher;
 
@@ -114,19 +116,28 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 targetDirection = (targetEnemy.transform.position - transform.position).normalized;
 
-                /*float dotResult = Vector2.Dot(transform.right, targetEnemy.transform.position.normalized);
+                float dotResult = Vector2.Dot(targetDirection, originalDirection.normalized);
 
                 Debug.Log(dotResult);
 
-                if (dotResult > -0.6)
+                Debug.DrawRay(transform.position, transform.right * 5f, Color.cyan);
+                //Debug.DrawRay(transform.position, targetEnemy.transform.position.normalized * 5f, Color.white);
+                Debug.DrawRay(transform.position, targetDirection * 5f, Color.red);
+
+                if (dotResult > 0.5f)
+                    gameObject.transform.right = targetDirection;
+
+/*                //Target enemy otherwise return to default
+                if (dotResult < 0.3)
                 {
-                    
+                    gameObject.transform.right = targetDirection;
                 }*/
-
-                gameObject.transform.right = targetDirection;
-
-                //Debug
-                Debug.DrawRay(transform.position, targetDirection * 3f, Color.yellow);
+              /*  else
+                {
+                    gameObject.transform.right = originalDirection;
+                    //StopAllCoroutines();
+                    //instance = null;
+                }*/
             }
 
             //Spawn projectiles
