@@ -267,7 +267,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3f2dadc33b7b34884a73cc4f6235f263, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10c36c31e4f0b42a8bbad8d950e907b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -586,7 +586,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b8011722e80b42cf8ccb96b9f3252fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2756ad7ead63d40fb923a50dab867ec2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -645,7 +645,10 @@ MonoBehaviour:
   _panel1: {fileID: 480384595}
   _panel2: {fileID: 1225912878}
   _panel3: {fileID: 40156578}
-  _panel1Sound: {fileID: 8300000, guid: f217c10fd1a4d084c9a751659a65f43e, type: 3}
+  _panel11: {fileID: 21300000, guid: 3f2dadc33b7b34884a73cc4f6235f263, type: 3}
+  _panel21: {fileID: 21300000, guid: 0b8011722e80b42cf8ccb96b9f3252fc, type: 3}
+  _panel1Sound: {fileID: 8300000, guid: cae32dc1bc5ce5f4bb15ef6dbb26915f, type: 3}
+  _panel1SoundB: {fileID: 8300000, guid: 6faeb0dded3deac4da847856d1ace702, type: 3}
   _panel2Sound: {fileID: 8300000, guid: 87b0b6beec14c493483852e0421e218c, type: 3}
   _panel3Sound: {fileID: 8300000, guid: e246c9bd8acad4042959970dce3e4226, type: 3}
   _source: {fileID: 1257298163}

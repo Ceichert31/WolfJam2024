@@ -16,7 +16,16 @@ public class ComicHandler : MonoBehaviour
     private SpriteRenderer _panel3;
 
     [SerializeField]
+    private Sprite _panel11;
+
+    [SerializeField]
+    private Sprite _panel21;
+
+    [SerializeField]
     private AudioClip _panel1Sound;
+
+    [SerializeField]
+    private AudioClip _panel1SoundB;
 
     [SerializeField]
     private AudioClip _panel2Sound;
@@ -52,13 +61,21 @@ public class ComicHandler : MonoBehaviour
         _panel1.transform.position = new Vector3(_panel1.transform.position.x - 3.0f, _panel1.transform.position.y);
         _panel1.transform.DOMoveX(_panel1.transform.position.x + 3.0f, 0.5f);
 
+        yield return new WaitForSeconds(1.5f);
+        _source.PlayOneShot(_panel1SoundB);
+        _panel1.sprite = _panel11;
+
         // SHOW PANEL 2
-        yield return new WaitForSeconds(3.0f);
-        _source.PlayOneShot(_panel2Sound);
+        yield return new WaitForSeconds(2.5f);
+        _source.PlayOneShot(_panel1Sound);
 
         _panel2.gameObject.SetActive(true);
         _panel2.transform.localScale = new Vector3(1.4f, 1.4f, 1.0f);
         yield return _panel2.transform.DOScale(1.0f, 0.2f).SetEase(Ease.Linear).WaitForCompletion();
+
+        yield return new WaitForSeconds(2.0f);
+        _panel2.sprite = _panel21;
+        _source.PlayOneShot(_panel2Sound);
         _panel2.transform.DOShakePosition(0.4f, 0.2f, 50);
 
         // SHOW PANEL 3
