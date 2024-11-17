@@ -85,6 +85,12 @@ public class UnitManager : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (!TutorialController.Instance.firstDeath)
+        {
+            TutorialController.Instance.firstDeath = true;
+            TutorialController.Instance.tutorial2.SetActive(true);
+        }
     }
 
     private void RemoveAllUnits()

@@ -50,5 +50,10 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
         Vector2 targetVelocity = movementDirection * maxSpeed;
         body.linearVelocity = Vector2.Lerp(body.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+
+        if (body.linearVelocity.magnitude > 2f)
+        {
+            TutorialController.Instance.tutorial1.SetActive(false);
+        }
     }
 }
