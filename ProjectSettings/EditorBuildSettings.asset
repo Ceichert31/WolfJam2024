@@ -6,7 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6383a85ed8aec13468c12c98c31c3e4b
+  - enabled: 1
+    path: Assets/Scenes/Comic.unity
+    guid: 80d9ba0084e5e460eafacb01257e4d77
+  - enabled: 1
     path: Assets/Scenes/SethScene.unity
     guid: 831291f4e94884552862cfd7bb518ed6
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: bff922eee212770439bb554f5a97bea7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
