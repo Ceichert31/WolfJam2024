@@ -77,6 +77,7 @@ public class ProjectileSpawner : MonoBehaviour
         {
             StopAllCoroutines();
             instance = null;
+            return;
         }
 
         //Logic for tracking and firing at nearest enemy
