@@ -14,6 +14,6 @@ public class PlayerDeathEffects : MonoBehaviour
     void PlayDeathEffects()
     {
         EffectManager.instance.CallScreenFlash(0.5f);
-        EffectManager.instance.CameraShake(1.0f, 2.0f, 30);
+        EffectManager.instance.CameraShake(1.0f, 5.0f, 50);
     }
 }
