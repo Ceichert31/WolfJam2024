@@ -115,29 +115,10 @@ public class ProjectileSpawner : MonoBehaviour
             if (targetEnemy != null)
             {
                 targetDirection = (targetEnemy.transform.position - transform.position).normalized;
-
                 float dotResult = Vector2.Dot(targetDirection, originalDirection.normalized);
 
-                Debug.Log(dotResult);
-
-                Debug.DrawRay(transform.position, transform.right * 5f, Color.cyan);
-                //Debug.DrawRay(transform.position, targetEnemy.transform.position.normalized * 5f, Color.white);
-                Debug.DrawRay(transform.position, targetDirection * 5f, Color.red);
-
-                if (dotResult > 0.5f)
+                if (dotResult > 0.4f)
                     gameObject.transform.right = targetDirection;
-
-/*                //Target enemy otherwise return to default
-                if (dotResult < 0.3)
-                {
-                    gameObject.transform.right = targetDirection;
-                }*/
-              /*  else
-                {
-                    gameObject.transform.right = originalDirection;
-                    //StopAllCoroutines();
-                    //instance = null;
-                }*/
             }
 
             //Spawn projectiles
@@ -197,47 +178,6 @@ public class ProjectileSpawner : MonoBehaviour
         yield return null;
         instance = null;
     }
-
-    #region Defunct
-    /*IEnumerator RotateTo(Vector3 startEuler, Vector3 targetEuler)
-    {
-        float timeElapsed = 0;
-        transform.eulerAngles = startEuler;
-        while (timeElapsed < rotationTime)
-        {
-            timeElapsed += Time.deltaTime;
-            transform.eulerAngles = Vector3.Lerp(startEuler, targetEuler, timeElapsed / rotationTime);
-            yield return null;
-        }
-        transform.eulerAngles = targetEuler;
-        instance = null;
-        reverseDirection = !reverseDirection;
-    }*/
-
-    //instance = StartCoroutine(RotateTo(transform.eulerAngles, new(transform.eulerAngles.x, transform.eulerAngles.y, angle)));
-    //angle = Mathf.Clamp(angle, minRotationZ, maxRotationZ);
-
-    //Flamethrower functionallity
-    /* if (!canRotate) return;
-     * 
-     * if (instance != null) return;
-
-     if (!reverseDirection)
-         instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ)));
-     else
-         instance = StartCoroutine(RotateTo(new(transform.eulerAngles.x, transform.eulerAngles.y, maxRotationZ), new(transform.eulerAngles.x, transform.eulerAngles.y, minRotationZ)));*/
-
-
-
-    /*           else
-            {
-                *//*StopAllCoroutines();
-                instance = null;
-                Debug.Log("No Enemies");
-                //Reset rotation
-                gameObject.transform.right = originalDirection;*//*
-            }*/
-    #endregion
 }
 
 [System.Serializable]
