@@ -40,7 +40,7 @@ public class ProjectileSpawner : MonoBehaviour
     private float currentRotationTime;
     private bool reverseDirection;
     private Coroutine instance;
-    private Unit unit;
+    [SerializeField] private Unit unit;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioPitcherSO firingPitcher;
@@ -48,6 +48,7 @@ public class ProjectileSpawner : MonoBehaviour
     private AudioSource source;
     private float waitTime;
 
+    private bool canFire = true;
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -72,11 +73,11 @@ public class ProjectileSpawner : MonoBehaviour
         if (unit.IsPlayerShip)
             enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
 
-       /* if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) 
+        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) 
         {
             StopAllCoroutines();
-            return;
-        }*/
+            instance = null;
+        }
 
         //Logic for tracking and firing at nearest enemy
         if (isAutoAimEnabled)
@@ -96,6 +97,7 @@ public class ProjectileSpawner : MonoBehaviour
                     }
                     //If unit is detachted return
                     if (instanceUnit.MyShipUnitState == Unit.ShipUnitState.Detatched) return;
+
                     //Find closest enemy
                     float distance = Vector2.Distance(enemy.transform.position, transform.position);
                     if (distance < closestEnemy)
@@ -111,12 +113,16 @@ public class ProjectileSpawner : MonoBehaviour
             {
                 targetDirection = (targetEnemy.transform.position - transform.position).normalized;
 
-                float dotResult = Vector2.Dot(transform.right, targetEnemy.transform.position.normalized);
+                /*float dotResult = Vector2.Dot(transform.right, targetEnemy.transform.position.normalized);
 
-                if (dotResult > -0.6 || dotResult < 0.6f)
+                Debug.Log(dotResult);
+
+                if (dotResult > -0.6)
                 {
-                    gameObject.transform.right = targetDirection;
-                }
+                    
+                }*/
+
+                gameObject.transform.right = targetDirection;
 
                 //Debug
                 Debug.DrawRay(transform.position, targetDirection * 3f, Color.yellow);
