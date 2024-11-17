@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class ComicHandler : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class ComicHandler : MonoBehaviour
     [SerializeField]
     private AudioSource _source;
 
+    [SerializeField]
+    private AudioSource _musicSource;
+
+    [SerializeField]
+    private int _nextSceneIndex; 
 
     void Start()
     {
@@ -61,6 +67,18 @@ public class ComicHandler : MonoBehaviour
         _panel3.gameObject.SetActive(true);
         _panel3.transform.DOShakePosition(0.4f, 0.6f, 50);
         _source.PlayOneShot(_panel3Sound);
+
+        yield return new WaitForSeconds(4.0f);
+
+        // fade out panels
+        _panel1.DOFade(0.0f, 2.0f);
+        _panel2.DOFade(0.0f, 2.0f);
+        _panel3.DOFade(0.0f, 2.0f);
+
+        _musicSource.DOFade(0.0f, 2.0f);
+
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene(_nextSceneIndex);
 
         yield return null;
     }

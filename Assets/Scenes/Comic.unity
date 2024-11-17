@@ -331,12 +331,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cca3106ab2416dd47b8a5fc5b075c74c, type: 3}
-  m_Resource: {fileID: 8300000, guid: cca3106ab2416dd47b8a5fc5b075c74c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c422416057513425b8a218acfe09abb0, type: 3}
+  m_Resource: {fileID: 8300000, guid: c422416057513425b8a218acfe09abb0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.829
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -649,6 +649,8 @@ MonoBehaviour:
   _panel2Sound: {fileID: 8300000, guid: 87b0b6beec14c493483852e0421e218c, type: 3}
   _panel3Sound: {fileID: 8300000, guid: e246c9bd8acad4042959970dce3e4226, type: 3}
   _source: {fileID: 1257298163}
+  _musicSource: {fileID: 814101617}
+  _nextSceneIndex: 2
 --- !u!4 &1257298162
 Transform:
   m_ObjectHideFlags: 0
