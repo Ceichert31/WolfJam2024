@@ -37,20 +37,40 @@ PrefabInstance:
       value: BurstTurret
       objectReference: {fileID: 0}
     - target: {fileID: 7139864424775454376, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: m_Size.x
+      value: 0.65625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139864424775454376, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6342498285532812589, guid: 71b91fe8b35785a46a75919c8673fb58, type: 3}
+      objectReference: {fileID: -9203906869124335776, guid: e2c5d612d94573648b59abf8334be189, type: 3}
     - target: {fileID: 7139864424775454376, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7139864424775454376, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: m_Size.y
+      value: 0.71875
+      objectReference: {fileID: 0}
     - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3227186388037154812, guid: 71b91fe8b35785a46a75919c8673fb58, type: 3}
+      objectReference: {fileID: -8270302184504376004, guid: e2c5d612d94573648b59abf8334be189, type: 3}
     - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7243970334931976404, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_LocalPosition.x
