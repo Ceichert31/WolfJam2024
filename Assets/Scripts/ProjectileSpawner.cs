@@ -251,8 +251,9 @@ public struct ProjectileStats
     public int Damage;
     public int ProjectileNumber;
     public float DelayBetween;
+    public Sprite BulletSprite;
 
-    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer, GameObject parentObject, int damage, int projectileNum, float delayBetween)
+    public ProjectileStats(float speed, float lifeTime, Vector2 direction, int enemyLayer, GameObject parentObject, int damage, int projectileNum, float delayBetween, Sprite bulletSprite)
     {
         Speed = speed;
         LifeTime = lifeTime;
@@ -262,5 +263,6 @@ public struct ProjectileStats
         Damage = damage;
         ProjectileNumber = projectileNum;
         DelayBetween = delayBetween;
+        BulletSprite = bulletSprite;
     }
 }
