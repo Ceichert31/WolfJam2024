@@ -56,15 +56,20 @@ MonoBehaviour:
     Damage: 10
     ProjectileNumber: 3
     DelayBetween: 0.3
+    BulletSprite: {fileID: -5435699579783455978, guid: edd948be395e99644aecbefe278088c5, type: 3}
   isAutoAimEnabled: 1
   range: 10
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+  fireDelay: 0.5
   canRotate: 0
   minRotationZ: -60
   maxRotationZ: 60
   rotationTime: 0.1
+  unit: {fileID: 0}
+  value1: {x: 1, y: 0}
+  value2: {x: 1, y: 0}
   firingPitcher: {fileID: 11400000, guid: 30726c4af73214a47bf9a8fbaef224a6, type: 2}
 --- !u!82 &4645058140885502142
 AudioSource:

@@ -36,6 +36,7 @@ public class Projectile : MonoBehaviour
         {
             destroyMask.Add(0);
             destroyMask.Add(stats.EnemyLayer);
+            destroyMask.Add(3);
             damageMask.Add(stats.EnemyLayer);
         }
         else
