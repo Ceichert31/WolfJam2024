@@ -83,11 +83,11 @@ public abstract class Unit : MonoBehaviour
 
         if (shipUnitState == ShipUnitState.Detatched)
         {
-            animator.SetBool("Sad", true);
+            animator.SetBool("isSad", true);
         }
         else
         {
-            animator.SetBool("Sad", false);
+            animator.SetBool("isSad", false);
         }
     }
 
@@ -95,7 +95,7 @@ public abstract class Unit : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
         {
-            animator.SetTrigger("Hurt");
+            animator.SetTrigger("isHurt");
         }
 
     }
