@@ -1,9 +1,8 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class RandomizeUnit : MonoBehaviour
 {
-    [SerializeField] AnimatorController[] characters;
+    [SerializeField] RuntimeAnimatorController[] characters;
     [SerializeField] Animator animator;
     private void Awake()
     {
