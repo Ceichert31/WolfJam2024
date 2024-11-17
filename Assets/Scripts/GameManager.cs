@@ -79,6 +79,12 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 0.0f;
                 UpdateGameState(EGameState.Building);
+                if (!TutorialController.Instance.firstBuildMode && TutorialController.Instance.firstDeath)
+                {
+                    TutorialController.Instance.firstBuildMode = true;
+                    TutorialController.Instance.tutorial2.SetActive(false);
+                    TutorialController.Instance.tutorial3.SetActive(true);
+                }
             }
             else if (gameState == EGameState.Building)
             {

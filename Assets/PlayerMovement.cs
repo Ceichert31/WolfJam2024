@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -51,9 +52,17 @@ public class PlayerMovement : MonoBehaviour
         Vector2 targetVelocity = movementDirection * maxSpeed;
         body.linearVelocity = Vector2.Lerp(body.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
 
-        if (body.linearVelocity.magnitude > 2f)
+        if (body.linearVelocity.magnitude > 2f && !TutorialController.Instance.firstMove)
         {
+            TutorialController.Instance.firstMove = true;
             TutorialController.Instance.tutorial1.SetActive(false);
+            TutorialController.Instance.tutorial5.SetActive(true);
+            Invoke(nameof(RemoveTutorial), 1.5f);
         }
+    }
+
+    private void RemoveTutorial()
+    {
+        TutorialController.Instance.tutorial5.SetActive(false);
     }
 }

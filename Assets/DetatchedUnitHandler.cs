@@ -191,6 +191,12 @@ public class DetatchedUnitHandler : MonoBehaviour
         if(selectedUnit != null && GameManager.Instance.Player.GetComponent<UnitManager>().CanAddUnit(selectedUnit.transform.position, selectedUnit))
         {
             Instantiate(_connectionParticlePrefab.gameObject, unit.transform.position, Quaternion.identity);
+
+            if (!TutorialController.Instance.placeFirstUnit)
+            {
+                TutorialController.Instance.placeFirstUnit = true;
+                TutorialController.Instance.tutorial4.SetActive(false);
+            }
         }
 
 
@@ -201,6 +207,13 @@ public class DetatchedUnitHandler : MonoBehaviour
         if (unit.TryGetComponent(out UnitSpriteHelper spriteHelper))
         {
             spriteHelper.Pickup();
+
+            if (!TutorialController.Instance.attachFirstUnit)
+            {
+                TutorialController.Instance.attachFirstUnit = true;
+                TutorialController.Instance.tutorial3.SetActive(false);
+                TutorialController.Instance.tutorial4.SetActive(true);
+            }
         }
     }
 
