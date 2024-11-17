@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private List<int> damageMask;
 
+    [SerializeField] private ParticleSystem _explosion;
+
     private Rigidbody2D rb;
 
     private SpriteRenderer spriteRenderer;
@@ -71,6 +73,7 @@ public class Projectile : MonoBehaviour
 
         if (damageMask.Contains(collision.gameObject.layer))
         {
+            Instantiate(_explosion, transform.position, Quaternion.identity);
             collision.GetComponent<Unit>().MyUnitManager.MyHealth.TakeDamage(stats.Damage);
         }
 

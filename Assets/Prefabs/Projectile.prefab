@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyMask: 0000000007000000
   damageMask: 
+  _explosion: {fileID: 5015107829781751563, guid: 1bd7de999a741134cba4fb73324f2324, type: 3}
 --- !u!61 &-1188769993586775769
 BoxCollider2D:
   m_ObjectHideFlags: 0

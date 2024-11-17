@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemy(enemyToSpawn);
         }
 
-        currencyIncrease += 0.1f * Time.deltaTime;
+        currencyIncrease += 0.04f * Time.deltaTime;
     }
 
     void SpawnEnemy(GameObject enemy)

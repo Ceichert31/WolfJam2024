@@ -209,9 +209,17 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7439610950553095256, guid: 637dd67c68489f04cb76de928fb27664, type: 3}
+      propertyPath: _maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7439610950553095256, guid: 637dd67c68489f04cb76de928fb27664, type: 3}
       propertyPath: DeathParticle
       value: 
       objectReference: {fileID: 6120404789904446748, guid: 8461152e441e3ef4488ddb2ebf1d5bef, type: 3}
+    - target: {fileID: 7439610950553095256, guid: 637dd67c68489f04cb76de928fb27664, type: 3}
+      propertyPath: _startingHealth
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 7720205383097848686, guid: 637dd67c68489f04cb76de928fb27664, type: 3}
       propertyPath: m_Name
       value: EnemyHeal

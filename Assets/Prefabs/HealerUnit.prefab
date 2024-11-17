@@ -104,7 +104,7 @@ MonoBehaviour:
   _myCollider: {fileID: 6931990865599812313}
   _detatchementForce: 1
   animator: {fileID: 7187711807024833384}
-  healingAmount: 15
+  healingAmount: 2
   healingFrequency: 1
   healParticles: {fileID: 3640950495389463466, guid: 7864a4a31465a1746b24e5cef5e5dc69, type: 3}
 --- !u!114 &885567077447093119
