@@ -7,12 +7,14 @@ public class TutorialController : MonoBehaviour
     public GameObject tutorial3;
     public GameObject tutorial4;
     public GameObject tutorial5;
+    public GameObject tutorial6;
 
     public bool firstMove;
     public bool firstDeath;
     public bool firstBuildMode;
     public bool attachFirstUnit;
     public bool placeFirstUnit;
+    public bool exitBuildModeFirst;
 
     static public TutorialController Instance;
 

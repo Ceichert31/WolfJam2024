@@ -88,6 +88,7 @@ public class UnitManager : MonoBehaviour
 
         if (!TutorialController.Instance.firstDeath)
         {
+            TutorialController.Instance.tutorial5.SetActive(false);
             TutorialController.Instance.firstDeath = true;
             TutorialController.Instance.tutorial2.SetActive(true);
         }

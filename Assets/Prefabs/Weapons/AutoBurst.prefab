@@ -25,6 +25,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: projectileStats.LifeTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: projectileStats.DelayBetween
       value: 0.1
       objectReference: {fileID: 0}
@@ -44,12 +48,20 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7139864424775454376, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3227186388037154812, guid: 71b91fe8b35785a46a75919c8673fb58, type: 3}
     - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240748558025102747, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7243970334931976404, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}

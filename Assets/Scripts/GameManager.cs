@@ -90,6 +90,12 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 1.0f;
                 UpdateGameState(EGameState.Playing);
+
+                if (!TutorialController.Instance.exitBuildModeFirst)
+                {
+                    TutorialController.Instance.exitBuildModeFirst = true;
+                    TutorialController.Instance.tutorial6.SetActive(false);
+                }
             }
         }
     }

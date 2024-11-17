@@ -196,6 +196,7 @@ public class DetatchedUnitHandler : MonoBehaviour
             {
                 TutorialController.Instance.placeFirstUnit = true;
                 TutorialController.Instance.tutorial4.SetActive(false);
+                TutorialController.Instance.tutorial6.SetActive(true);
             }
         }
 

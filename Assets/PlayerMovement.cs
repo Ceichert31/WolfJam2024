@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             TutorialController.Instance.firstMove = true;
             TutorialController.Instance.tutorial1.SetActive(false);
             TutorialController.Instance.tutorial5.SetActive(true);
-            Invoke(nameof(RemoveTutorial), 1.5f);
+            Invoke(nameof(RemoveTutorial), 3f);
         }
     }
 

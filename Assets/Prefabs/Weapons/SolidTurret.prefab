@@ -17,6 +17,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: projectileStats.LifeTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: projectileStats.DelayBetween
       value: 0.5
       objectReference: {fileID: 0}
