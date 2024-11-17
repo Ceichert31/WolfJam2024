@@ -166,6 +166,22 @@ public class DetatchedUnitHandler : MonoBehaviour
         return units;
     }
 
+    public void PutDownUnit(Unit unit)
+    {
+        if (unit.TryGetComponent(out UnitSpriteHelper spriteHelper))
+        {
+            spriteHelper.PutDown();
+        }
+    }
+
+    public void PickUpUnit(Unit unit)
+    {
+        if (unit.TryGetComponent(out UnitSpriteHelper spriteHelper))
+        {
+            spriteHelper.Pickup();
+        }
+    }
+
     public void SetSelectedUnit(Unit unit)
     {
         if (GameManager.Instance.GameState != GameManager.EGameState.Building) return;

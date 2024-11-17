@@ -79,6 +79,8 @@ public class UnitManager : MonoBehaviour
 
             //Play death audio
             deathPitcher.Play(_audioSource);
+
+            Destroy(gameObject);
         }
     }
 
