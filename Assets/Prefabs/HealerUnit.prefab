@@ -64,7 +64,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7203982756855143596}
+    - targetCorrespondingSourceObject: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 885567077447093119}
   m_SourcePrefab: {fileID: 100100000, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+--- !u!4 &3597082284548313959 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9068984759939171493, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+  m_PrefabInstance: {fileID: 5490141732827912130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &6931990865599812313 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3171526062204323099, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
@@ -92,3 +100,16 @@ MonoBehaviour:
   healingAmount: 15
   healingFrequency: 1
   healParticles: {fileID: 3640950495389463466, guid: 7864a4a31465a1746b24e5cef5e5dc69, type: 3}
+--- !u!114 &885567077447093119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801163295754739843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ba74cce014b4fbc890911ac9c2dbaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3597082284548313959}
