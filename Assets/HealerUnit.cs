@@ -34,6 +34,7 @@ public class HealerUnit : ShipUnit
 
         if (targetHealthScript.CurrentHealth <= 0)
         {
+
             canHeal = false;
         }
 
@@ -45,8 +46,8 @@ public class HealerUnit : ShipUnit
 
         if (MyShipUnitState == ShipUnitState.Attached && canFindNewHealthScript == true)
         {
-            Debug.Log("gotNewHealth");
             GetHealthScript();
+            canHeal = true;
             canFindNewHealthScript = false;
         }
     }

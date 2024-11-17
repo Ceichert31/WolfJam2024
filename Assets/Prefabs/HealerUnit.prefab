@@ -91,4 +91,4 @@ MonoBehaviour:
   _detatchementForce: 1
   healingAmount: 15
   healingFrequency: 1
-  healParticles: {fileID: 0}
+  healParticles: {fileID: 3640950495389463466, guid: 7864a4a31465a1746b24e5cef5e5dc69, type: 3}
