@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 71b91fe8b35785a46a75919c8673fb58
+guid: e2c5d612d94573648b59abf8334be189
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3227186388037154812
-    second: burstGun_0
+      213: -1501114521748915140
+    second: burstGun-sheet_0
   - first:
-      213: -6342498285532812589
-    second: burstGun_1
+      213: -9203906869124335776
+    second: burstGun-sheet_1
   - first:
-      213: -7313084883275858695
-    second: burstGun_2
+      213: -8270302184504376004
+    second: burstGun-sheet_2
+  - first:
+      213: -1333671548002472372
+    second: burstGun-sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,67 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: burstGun_0
+      name: burstGun-sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
+        y: 3
         width: 13
-        height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf73eeaebe449cc20800000000000000
-      internalID: 3227186388037154812
+      spriteID: c3cb9f3bb48fa2be0800000000000000
+      internalID: -1501114521748915140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: burstGun_1
+      name: burstGun-sheet_1
       rect:
         serializedVersion: 2
         x: 40
-        y: 5
+        y: 6
         width: 21
-        height: 18
-      alignment: 9
-      pivot: {x: -0.2311276, y: 0.50000006}
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3daea4ec96beaf7a0800000000000000
-      internalID: -6342498285532812589
+      spriteID: 067f0188777254080800000000000000
+      internalID: -9203906869124335776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: burstGun_2
+      name: burstGun-sheet_2
       rect:
         serializedVersion: 2
         x: 63
-        y: 2
+        y: 3
         width: 14
-        height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fc30188b04b28a90800000000000000
-      internalID: -7313084883275858695
+      spriteID: c35ca7b2bfbf93d80800000000000000
+      internalID: -8270302184504376004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burstGun-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 8
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e644e0bc8dd7de0800000000000000
+      internalID: -1333671548002472372
       vertices: []
       indices: 
       edges: []
@@ -188,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8859914dc41c6d54b993a64f851556e5
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      burstGun_0: 3227186388037154812
-      burstGun_1: -6342498285532812589
-      burstGun_2: -7313084883275858695
+      burstGun-sheet_0: -1501114521748915140
+      burstGun-sheet_1: -9203906869124335776
+      burstGun-sheet_2: -8270302184504376004
+      burstGun-sheet_3: -1333671548002472372
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
