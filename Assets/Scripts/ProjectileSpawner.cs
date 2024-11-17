@@ -110,10 +110,29 @@ public class ProjectileSpawner : MonoBehaviour
             if (targetEnemy != null)
             {
                 targetDirection = (targetEnemy.transform.position - transform.position).normalized;
+
+                float dotResult = Vector2.Dot(transform.right, targetEnemy.transform.position.normalized);
+
+                if (dotResult > -0.6 || dotResult < 0.6f)
+                {
+                    gameObject.transform.right = targetDirection;
+                }
+
                 //Debug
                 Debug.DrawRay(transform.position, targetDirection * 3f, Color.yellow);
-                gameObject.transform.right = targetDirection;
             }
+
+            //Spawn projectiles
+            if (instance != null) return;
+            if (Time.time > waitTime)
+            {
+                waitTime = Time.time + fireDelay;
+                SpawnProjectiles(projectileStats);
+            }
+        }
+        else
+        {
+            gameObject.transform.right = originalDirection;
 
             //Spawn projectiles
             if (instance != null) return;
