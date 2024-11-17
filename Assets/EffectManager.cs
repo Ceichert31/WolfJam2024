@@ -10,6 +10,7 @@ public class EffectManager : MonoBehaviour
     Tween shakeTween;
     public Camera mainCam;
     public Image fadeImage;
+    public Image screenFlashImage;
 
     void Awake()
     {
@@ -39,6 +40,28 @@ public class EffectManager : MonoBehaviour
         shakeTween = mainCam.transform.DOShakePosition(duration, strength, vibrato);
     }
 
+    public void CallScreenFlash(float time)
+    {
+        StartCoroutine(ScreenFlash(time));
+    }
+
+    public IEnumerator ScreenFlash(float fadeOutTime)
+    {
+        screenFlashImage.color = new Color(screenFlashImage.color.r, screenFlashImage.color.g, screenFlashImage.color.b, 1.0f);
+
+        Color initialColor = screenFlashImage.color;
+        Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0.0f);
+
+        float elapsed = 0.0f;
+        while(elapsed < fadeOutTime)
+        {
+            screenFlashImage.color = Color.Lerp(initialColor, targetColor, elapsed / fadeOutTime);
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        screenFlashImage.color = targetColor;
+    }
 
     public IEnumerator ScreenFade(Color color, float targetOpacity, float fadeInDuration, float fadeOutDuration, float solidDuration)
     {
