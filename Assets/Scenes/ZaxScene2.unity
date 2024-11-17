@@ -521,6 +521,63 @@ MonoBehaviour:
   - sprites:
     - {fileID: 1074201562, guid: 2ebe4d16e1b263e45bdfed21dab7bee0, type: 3}
     - {fileID: 6326231466481203021, guid: 2ebe4d16e1b263e45bdfed21dab7bee0, type: 3}
+--- !u!1001 &1273522826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 194137346530961550, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_Name
+      value: EnemyBurst
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812477392445199633, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4de6b507bb3fa8c488285a5872f1fceb, type: 3}
 --- !u!1 &1378942030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1250,10 @@ MonoBehaviour:
     cost: 5
     enemies:
     - {fileID: 7720205383097848686, guid: 637dd67c68489f04cb76de928fb27664, type: 3}
+  - startSpawnTime: 0
+    cost: 10
+    enemies:
+    - {fileID: 7720205383097848686, guid: 637dd67c68489f04cb76de928fb27664, type: 3}
   readyForNewEnemy: 0
 --- !u!4 &2051008701
 Transform:
@@ -1243,10 +1304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f895d508ac1a43cda999fdfa120e500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100000
-  _startingHealth: 10000
+  _maxHealth: 250
+  _startingHealth: 250
   _canTakeDamage: 1
-  currentHealth: 0
+  currentHealth: 250
+  smokeParticle: {fileID: 0}
   DeathParticle: {fileID: 0}
 --- !u!1839735485 &2138327754
 Tilemap:
@@ -1390,3 +1452,4 @@ SceneRoots:
   - {fileID: 235220637}
   - {fileID: 2051008701}
   - {fileID: 220515340}
+  - {fileID: 1273522826}
