@@ -4,6 +4,9 @@ using UnityEngine.UI;
 public class ShipHealthUI : MonoBehaviour
 {
     [SerializeField]
+    private UnitManager _myUnitManager;
+
+    [SerializeField]
     private Health _health;
 
     [SerializeField]
