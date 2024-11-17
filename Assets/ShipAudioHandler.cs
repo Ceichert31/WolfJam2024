@@ -24,7 +24,7 @@ public class ShipAudioHandler : MonoBehaviour
 
     private void PlayDeathSound()
     {
-        _source.PlayOneShot(_deathSounds[Random.Range(0, _deathSounds.Length)]);
+        _source.PlayOneShot(_deathSounds[Random.Range(0, _deathSounds.Length - 1)]);
     }
 
     private void PlayDamageSound(int oldHealth, int newHealth)
@@ -32,7 +32,7 @@ public class ShipAudioHandler : MonoBehaviour
         // damage
         if(oldHealth > newHealth)
         {
-            _source.PlayOneShot(_damageSounds[Random.Range(0, _deathSounds.Length)]);
+            _source.PlayOneShot(_damageSounds[Random.Range(0, _deathSounds.Length - 1)]);
         }
         // heal
         else if(newHealth > oldHealth)
