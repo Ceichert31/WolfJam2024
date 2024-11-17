@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: e2c5d612d94573648b59abf8334be189
+guid: ad5a8fd5e6b99d04283bcf3aab793617
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1501114521748915140
-    second: burstGun-sheet_0
+      213: 7024701910510016638
+    second: Glitch_0
   - first:
-      213: -9203906869124335776
-    second: burstGun-sheet_1
+      213: -3768434319293535134
+    second: Glitch_1
   - first:
-      213: -8270302184504376004
-    second: burstGun-sheet_2
+      213: 4846163782946263163
+    second: Glitch_2
   - first:
-      213: -1333671548002472372
-    second: burstGun-sheet_3
+      213: -9014922595667875912
+    second: Glitch_3
+  - first:
+      213: 4759269905845248274
+    second: Glitch_4
+  - first:
+      213: 6324946744578205242
+    second: Glitch_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,89 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: burstGun-sheet_0
+      name: Glitch_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 13
-        height: 23
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3cb9f3bb48fa2be0800000000000000
-      internalID: -1501114521748915140
+      spriteID: e7815fc4b21cc7160800000000000000
+      internalID: 7024701910510016638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: burstGun-sheet_1
+      name: Glitch_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 6
-        width: 21
-        height: 17
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 067f0188777254080800000000000000
-      internalID: -9203906869124335776
+      spriteID: 26c2e1fd3f4d3bbc0800000000000000
+      internalID: -3768434319293535134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: burstGun-sheet_2
+      name: Glitch_2
       rect:
         serializedVersion: 2
-        x: 63
-        y: 3
-        width: 14
-        height: 23
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c35ca7b2bfbf93d80800000000000000
-      internalID: -8270302184504376004
+      spriteID: b7010e5d848014340800000000000000
+      internalID: 4846163782946263163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: burstGun-sheet_3
+      name: Glitch_3
       rect:
         serializedVersion: 2
-        x: 100
-        y: 8
-        width: 23
-        height: 14
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4e644e0bc8dd7de0800000000000000
-      internalID: -1333671548002472372
+      spriteID: 8b7e29f89af84e280800000000000000
+      internalID: -9014922595667875912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glitch_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 211ec1083c25c0240800000000000000
+      internalID: 4759269905845248274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glitch_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a36e8dd9d89b6c750800000000000000
+      internalID: 6324946744578205242
       vertices: []
       indices: 
       edges: []
@@ -213,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8d0b0e692929d4c4ea347edd317d7d43
+    spriteID: c1cb545d30a0a2f4dbc8b85ea9e5d89c
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      burstGun-sheet_0: -1501114521748915140
-      burstGun-sheet_1: -9203906869124335776
-      burstGun-sheet_2: -8270302184504376004
-      burstGun-sheet_3: -1333671548002472372
+      Glitch_0: 7024701910510016638
+      Glitch_1: -3768434319293535134
+      Glitch_2: 4846163782946263163
+      Glitch_3: -9014922595667875912
+      Glitch_4: 4759269905845248274
+      Glitch_5: 6324946744578205242
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

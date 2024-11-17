@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b98c0200b973e42947dbb8f13bb484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bugAnimator: {fileID: 9100000, guid: 99384bae50795a04285937402aeb4f54, type: 2}
   _myCollider: {fileID: 6931990865599812313}
   _detatchementForce: 1
   animator: {fileID: 7187711807024833384}

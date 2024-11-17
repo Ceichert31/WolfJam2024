@@ -10,6 +10,9 @@ public abstract class Unit : MonoBehaviour
         Attached
     }
 
+    [SerializeField] RuntimeAnimatorController bugAnimator;
+    bool hasRandomizedCharacter = false;    
+
     [SerializeField]
     private Collider2D _myCollider;
 
@@ -88,6 +91,18 @@ public abstract class Unit : MonoBehaviour
         else
         {
             animator.SetBool("isSad", false);
+        }
+
+        
+        if (myUnitManager != null && !myUnitManager.IsPlayerShip && shipUnitState == ShipUnitState.Attached)
+        {
+            Debug.Log("Bug");
+            animator.runtimeAnimatorController = bugAnimator;
+        }
+        else if (!hasRandomizedCharacter)
+        {
+            GetComponentInChildren<RandomizeUnit>().RandomizeCharacter();
+            hasRandomizedCharacter = true;
         }
     }
 

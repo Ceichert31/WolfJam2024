@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725290a9ead5d4081b614bfd71d39d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bugAnimator: {fileID: 9100000, guid: 99384bae50795a04285937402aeb4f54, type: 2}
   _myCollider: {fileID: 3171526062204323099}
   _detatchementForce: 1
   animator: {fileID: 3426965671351284906}
@@ -328,7 +329,7 @@ Animator:
   m_GameObject: {fileID: 7344830142620901227}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf5f014b79e1dbe4bad9f98c43c9b3a0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 99384bae50795a04285937402aeb4f54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
