@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] float currentCurrency;
+  float currencyIncrease;
+
     Transform enemyContainer;
     Transform player;
     [System.Serializable]
@@ -36,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (currentCurrency < nextEnemyTier.cost)
         {
-            currentCurrency += Time.deltaTime;
+            currentCurrency += Time.deltaTime * (currencyIncrease + 1);
         }
         else
         {
@@ -45,6 +47,8 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemyToSpawn = nextEnemyTier.enemies[Random.Range(0, nextEnemyTier.enemies.Length)];
             SpawnEnemy(enemyToSpawn);
         }
+
+        currencyIncrease += 0.1f * Time.deltaTime;
     }
 
     void SpawnEnemy(GameObject enemy)
