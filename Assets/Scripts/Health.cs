@@ -14,6 +14,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int currentHealth;
 
+    [SerializeField] ParticleSystem smokeParticle;
+
     // getters
     public int CurrentHealth { get { return currentHealth; } }
 
@@ -75,6 +77,22 @@ public class Health : MonoBehaviour
         return true;
     }
 
+
+    private void Update()
+    {
+        if (smokeParticle != null)
+        {
+            if (currentHealth < _maxHealth / 3)
+            {
+                if (!smokeParticle.isEmitting)
+                {
+                    smokeParticle.Play();
+
+                }
+            }
+        }
+
+    }
     public void RestoreHealth()
     {
         currentHealth = _maxHealth;
