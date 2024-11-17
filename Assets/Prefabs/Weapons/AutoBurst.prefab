@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: isAutoAimEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: projectileStats.Speed
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: projectileStats.Damage
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: projectileStats.DelayBetween
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2730921503959214515, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_Name
-      value: BurstTurret
+      value: AutoBurst
       objectReference: {fileID: 0}
     - target: {fileID: 7139864424775454376, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_Sprite

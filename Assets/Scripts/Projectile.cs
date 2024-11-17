@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private SpriteRenderer spriteRenderer;
+
     private ProjectileStats stats;
 
     private float waitTime;
@@ -20,6 +22,10 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        //Setting sprite
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = stats.BulletSprite;
 
         //Set lifetime duration
         waitTime = Time.time + stats.LifeTime;

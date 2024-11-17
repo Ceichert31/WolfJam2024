@@ -8,9 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: fireDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: projectileStats.Damage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476776029446581323, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
+      propertyPath: projectileStats.DelayBetween
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2730921503959214515, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_Name
-      value: Turret
+      value: AutoTurret
       objectReference: {fileID: 0}
     - target: {fileID: 7243970334931976404, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
       propertyPath: m_LocalPosition.x
