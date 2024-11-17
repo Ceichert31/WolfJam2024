@@ -40,7 +40,7 @@ public class ProjectileSpawner : MonoBehaviour
     private float currentRotationTime;
     private bool reverseDirection;
     private Coroutine instance;
-    private Unit unit;
+    [SerializeField] private Unit unit;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioPitcherSO firingPitcher;
@@ -48,6 +48,7 @@ public class ProjectileSpawner : MonoBehaviour
     private AudioSource source;
     private float waitTime;
 
+    private bool canFire = true;
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -72,11 +73,14 @@ public class ProjectileSpawner : MonoBehaviour
         if (unit.IsPlayerShip)
             enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
 
-       /* if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) 
+        if (unit.MyShipUnitState == Unit.ShipUnitState.Detatched) 
         {
             StopAllCoroutines();
-            return;
-        }*/
+            instance = null;
+        }
+
+        Debug.Log(unit.MyShipUnitState);
+        Debug.Log(unit.IsPlayerShip);
 
         //Logic for tracking and firing at nearest enemy
         if (isAutoAimEnabled)
@@ -113,7 +117,9 @@ public class ProjectileSpawner : MonoBehaviour
 
                 float dotResult = Vector2.Dot(transform.right, targetEnemy.transform.position.normalized);
 
-                if (dotResult > -0.6 || dotResult < 0.6f)
+                Debug.Log(dotResult);
+
+                if (dotResult > -0.6)
                 {
                     gameObject.transform.right = targetDirection;
                 }
