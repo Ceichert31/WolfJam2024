@@ -78,6 +78,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3171526062204323099, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
   m_PrefabInstance: {fileID: 5490141732827912130}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &7187711807024833384 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3426965671351284906, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
+  m_PrefabInstance: {fileID: 5490141732827912130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8801163295754739843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3896992132034705217, guid: e589835310a714331b5e81ec957f7cf1, type: 3}
@@ -97,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myCollider: {fileID: 6931990865599812313}
   _detatchementForce: 1
+  animator: {fileID: 7187711807024833384}
   healingAmount: 15
   healingFrequency: 1
   healParticles: {fileID: 3640950495389463466, guid: 7864a4a31465a1746b24e5cef5e5dc69, type: 3}

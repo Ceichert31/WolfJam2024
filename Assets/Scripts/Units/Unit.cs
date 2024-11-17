@@ -23,6 +23,8 @@ public abstract class Unit : MonoBehaviour
     [HideInInspector] protected UnitManager myUnitManager;
     protected ShipUnitState shipUnitState;
 
+    [SerializeField] Animator animator;
+
     public ShipUnitState MyShipUnitState { get { return shipUnitState; } }
     public UnitManager MyUnitManager { get { return myUnitManager; } }
     public bool IsPlayerShip { get { return myUnitManager.IsPlayerShip; } }
@@ -78,6 +80,24 @@ public abstract class Unit : MonoBehaviour
         {
             _myCollider.enabled = false;
         }
+
+        if (shipUnitState == ShipUnitState.Detatched)
+        {
+            animator.SetBool("Sad", true);
+        }
+        else
+        {
+            animator.SetBool("Sad", false);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag != "Player")
+        {
+            animator.SetTrigger("Hurt");
+        }
+
     }
 
     public void DetatchUnit()
