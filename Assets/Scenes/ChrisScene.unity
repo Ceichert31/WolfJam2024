@@ -409,7 +409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEFT CLICK TO GRAB MODULING
+  m_text: HOLD LEFT CLICK ON MODULING TO DRAG
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4740d7b8547930946a8cc5623faca13a, type: 2}
   m_sharedMaterial: {fileID: 8403705525614489053, guid: 4740d7b8547930946a8cc5623faca13a, type: 2}
@@ -2024,6 +2024,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1031103914}
+  - component: {fileID: 1031103915}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -2054,6 +2055,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1031103915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031103913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f65b6d03d3f7441bbd2c989d64a8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial1: {fileID: 1167763148}
+  tutorial2: {fileID: 1614069198}
+  tutorial3: {fileID: 2050286901}
+  tutorial4: {fileID: 400788172}
+  firstDeath: 0
 --- !u!4 &1127035105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7243970334931976404, guid: ec00b3654560f974caec3a14d9dbefda, type: 3}
@@ -2331,7 +2349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1167763149
 RectTransform:
   m_ObjectHideFlags: 0

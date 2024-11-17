@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject tutorial1;
+    public GameObject tutorial2;
+    public GameObject tutorial3;
+    public GameObject tutorial4;
 
-    // Update is called once per frame
-    void Update()
+    public bool firstDeath;
+    public bool firstBuildMode;
+
+    static public TutorialController Instance;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void OnEnable()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
